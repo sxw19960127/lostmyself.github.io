@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="星光不问赶路人 – 写给自己 ​        在这个想要却又得不到的年纪，野心与能力不成正比。Always Lost一直在路上。​        很多年迈的人说起一生的经历，抱怨年轻时太过于注重结果，等到老了才发现，最美的都是过程。人都是在错误中过着自己的每一天，反正还有更好的事情，你在抱怨着，遗憾着…多么希望自己能够变成一个知足之人，游戏人生，何必这么在意！​        忽然想起某作家说的">
+<meta name="description" content="function doDecrypt (pwd, onError) { 	console.log(&apos;in doDecrypt&apos;); 	const txt = document.getElementById(&apos;enc_content&apos;).innerHTML; 	let plantext; 	try { 		const bytes = CryptoJS.AES.decrypt(txt, pwd);">
 <meta name="keywords" content="个人日志">
 <meta property="og:type" content="article">
 <meta property="og:title" content="日志">
 <meta property="og:url" content="https://sxw19960127.github.io/lostmyself.github.io/2019/08/03/日志/index.html">
 <meta property="og:site_name" content="sxw个人博客">
-<meta property="og:description" content="星光不问赶路人 – 写给自己 ​        在这个想要却又得不到的年纪，野心与能力不成正比。Always Lost一直在路上。​        很多年迈的人说起一生的经历，抱怨年轻时太过于注重结果，等到老了才发现，最美的都是过程。人都是在错误中过着自己的每一天，反正还有更好的事情，你在抱怨着，遗憾着…多么希望自己能够变成一个知足之人，游戏人生，何必这么在意！​        忽然想起某作家说的">
+<meta property="og:description" content="function doDecrypt (pwd, onError) { 	console.log(&apos;in doDecrypt&apos;); 	const txt = document.getElementById(&apos;enc_content&apos;).innerHTML; 	let plantext; 	try { 		const bytes = CryptoJS.AES.decrypt(txt, pwd);">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-02T17:00:57.447Z">
+<meta property="og:updated_time" content="2019-08-03T09:36:05.612Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="日志">
-<meta name="twitter:description" content="星光不问赶路人 – 写给自己 ​        在这个想要却又得不到的年纪，野心与能力不成正比。Always Lost一直在路上。​        很多年迈的人说起一生的经历，抱怨年轻时太过于注重结果，等到老了才发现，最美的都是过程。人都是在错误中过着自己的每一天，反正还有更好的事情，你在抱怨着，遗憾着…多么希望自己能够变成一个知足之人，游戏人生，何必这么在意！​        忽然想起某作家说的">
+<meta name="twitter:description" content="function doDecrypt (pwd, onError) { 	console.log(&apos;in doDecrypt&apos;); 	const txt = document.getElementById(&apos;enc_content&apos;).innerHTML; 	let plantext; 	try { 		const bytes = CryptoJS.AES.decrypt(txt, pwd);">
 
 
 
@@ -353,7 +353,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  516
+                  166
                 </span>
               
 
@@ -390,9 +390,46 @@
       
 
       
-        <p>星光不问赶路人 – 写给自己</p>
-<p>​        在这个想要却又得不到的年纪，野心与能力不成正比。Always Lost一直在路上。<br>​        很多年迈的人说起一生的经历，抱怨年轻时太过于注重结果，等到老了才发现，最美的都是过程。人都是在错误中过着自己的每一天，反正还有更好的事情，你在抱怨着，遗憾着…多么希望自己能够变成一个知足之人，游戏人生，何必这么在意！<br>​        忽然想起某作家说的一万小时定律，似乎给了我继续坚持下去的信心，5G，python，人工智能，大数据..时代在进步，很多人和事物都在淘汰的边缘，社会阶级深化，贫富差距越来越大。看到过这么一则新闻，以后的社会是动荡的，如果能够有效的抚平这动荡的趋势就是社会应该大力发展娱乐事业，尽可能分散人们的注意力，让人们失去意志力，而屈服于这个社会,这个现状。嗯，我现在已经非常后悔自己的大学究竟在干了些什么事情了，这个时代最珍贵的时间就被我肆意挥霍了近4年，96年的我问了问自己，还能够熬多少深夜，引人深醒。csdn今天推送了一篇文章，再过5年，pc将会淘汰。我没忍住去点了文章，没有全部看完，点开评论，一片谩骂：类似pc才不会消失，小编会消失；小编是不是平板用多了，说出这种话；pc在办公以及科研方面依旧是不可替代的… 回头想想是有点蹭热度的文章，但是5年后世界会变成什么样子呢？我又会在哪座城市定居?估计答案全在时间那里吧，现在的我还是需要往这个..体制里面去冲,没有后路..                                                                                     2019/8/3 00:54</p>
-
+        <script src="/lostmyself.github.io/js/crypto-js.js"></script>
+<script>
+function doDecrypt (pwd, onError) {
+	console.log('in doDecrypt');
+	const txt = document.getElementById('enc_content').innerHTML;
+	let plantext;
+	try {
+		const bytes = CryptoJS.AES.decrypt(txt, pwd);
+		var plaintext = bytes.toString(CryptoJS.enc.Utf8);
+	} catch(err) {
+		if(onError) {
+			onError(err);
+		}
+		return;
+	}
+	document.getElementById('enc_content').innerHTML = plaintext;
+	document.getElementById('enc_content').style.display = 'block';
+	document.getElementById('enc_passwd').style.display = 'none';
+	if(typeof MathJax !== 'undefined') {
+		MathJax.Hub.Queue(
+			['resetEquationNumbers', MathJax.InputJax.TeX],
+			['PreProcess', MathJax.Hub],
+			['Reprocess', MathJax.Hub]
+		);
+	}
+}
+</script>
+<div id="enc_content" style="display:none">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</div>
+<div id="enc_passwd"> <input id="enc_pwd_input" type="password" style="border-radius: 5px;border-style: groove;height: 30px;width: 50%;cursor: auto;font-size: 102%;color: currentColor;outline: none;text-overflow: initial;padding-left: 5px;" onkeydown="if (event.keyCode == 13) { decrypt(); return false;}"> <input type="submit" value="解&nbsp;密" onclick="decrypt()" style="width: 58px;height: 34px;border-radius: 5px;background-color: white;border-style: solid;color: currentColor;"><div id="enc_error" style="display: inline-block;color: #d84527;margin-left: 10px"></div>
+<script>
+var onError = function(error) {
+	document.getElementById("enc_error").innerHTML = "password error!"
+};
+function decrypt() {
+var passwd = document.getElementById("enc_pwd_input").value;
+console.log(passwd);
+doDecrypt(passwd, onError);
+}
+</script>
+</div>
       
     </div>
     
@@ -589,7 +626,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">24.8k</span>
+    <span title="Site words total count">15.2k</span>
   
 </div>
 
