@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lostmyself.github.io/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lostmyself.github.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/lostmyself.github.io/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/lostmyself.github.io/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/lostmyself.github.io/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/lostmyself.github.io/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/lostmyself.github.io/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="笔试面试,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="function doDecrypt (pwd, onError) { 	console.log(&apos;in doDecrypt&apos;); 	const txt = document.getElementById(&apos;enc_content&apos;).innerHTML; 	let plantext; 	try { 		const bytes = CryptoJS.AES.decrypt(txt, pwd);">
+<meta name="keywords" content="笔试面试">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端笔试精选与面试技巧">
+<meta property="og:url" content="https://sxw19960127.github.io/lostmyself.github.io/2019/08/05/前端笔试精选与面试技巧/index.html">
+<meta property="og:site_name" content="sxw个人博客">
+<meta property="og:description" content="function doDecrypt (pwd, onError) { 	console.log(&apos;in doDecrypt&apos;); 	const txt = document.getElementById(&apos;enc_content&apos;).innerHTML; 	let plantext; 	try { 		const bytes = CryptoJS.AES.decrypt(txt, pwd);">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-08-06T01:33:42.875Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端笔试精选与面试技巧">
+<meta name="twitter:description" content="function doDecrypt (pwd, onError) { 	console.log(&apos;in doDecrypt&apos;); 	const txt = document.getElementById(&apos;enc_content&apos;).innerHTML; 	let plantext; 	try { 		const bytes = CryptoJS.AES.decrypt(txt, pwd);">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/lostmyself.github.io/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://sxw19960127.github.io/lostmyself.github.io/2019/08/05/前端笔试精选与面试技巧/">
+
+
+
+
+
+
+  <title>前端笔试精选与面试技巧 | sxw个人博客</title>
+  
+
+
+
+
+
+
+
+
+  
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/lostmyself.github.io/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">sxw个人博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">你若盛开,蝴蝶自来</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/lostmyself.github.io/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/lostmyself.github.io/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/lostmyself.github.io/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/lostmyself.github.io/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/lostmyself.github.io/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://sxw19960127.github.io/lostmyself.github.io/lostmyself.github.io/2019/08/05/前端笔试精选与面试技巧/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="sxw">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/lostmyself.github.io/images/3.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="sxw个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">前端笔试精选与面试技巧</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-05T08:29:31+08:00">
+                2019-08-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/lostmyself.github.io/categories/web前端开发/" itemprop="url" rel="index">
+                    <span itemprop="name">web前端开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  595
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <script src="/lostmyself.github.io/js/crypto-js.js"></script>
+<script>
+function doDecrypt (pwd, onError) {
+	console.log('in doDecrypt');
+	const txt = document.getElementById('enc_content').innerHTML;
+	let plantext;
+	try {
+		const bytes = CryptoJS.AES.decrypt(txt, pwd);
+		var plaintext = bytes.toString(CryptoJS.enc.Utf8);
+	} catch(err) {
+		if(onError) {
+			onError(err);
+		}
+		return;
+	}
+	document.getElementById('enc_content').innerHTML = plaintext;
+	document.getElementById('enc_content').style.display = 'block';
+	document.getElementById('enc_passwd').style.display = 'none';
+	if(typeof MathJax !== 'undefined') {
+		MathJax.Hub.Queue(
+			['resetEquationNumbers', MathJax.InputJax.TeX],
+			['PreProcess', MathJax.Hub],
+			['Reprocess', MathJax.Hub]
+		);
+	}
+}
+</script>
+<div id="enc_content" style="display:none">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</div>
+<div id="enc_passwd"> <input id="enc_pwd_input" type="password" style="border-radius: 5px;border-style: groove;height: 30px;width: 50%;cursor: auto;font-size: 102%;color: currentColor;outline: none;text-overflow: initial;padding-left: 5px;" onkeydown="if (event.keyCode == 13) { decrypt(); return false;}"> <input type="submit" value="解&nbsp;密" onclick="decrypt()" style="width: 58px;height: 34px;border-radius: 5px;background-color: white;border-style: solid;color: currentColor;"><div id="enc_error" style="display: inline-block;color: #d84527;margin-left: 10px"></div>
+<script>
+var onError = function(error) {
+	document.getElementById("enc_error").innerHTML = "password error!"
+};
+function decrypt() {
+var passwd = document.getElementById("enc_pwd_input").value;
+console.log(passwd);
+doDecrypt(passwd, onError);
+}
+</script>
+</div>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/lostmyself.github.io/tags/笔试面试/" rel="tag"># 笔试面试</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/lostmyself.github.io/2019/08/04/8月4号/" rel="next" title="8月4号">
+                <i class="fa fa-chevron-left"></i> 8月4号
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/lostmyself.github.io/2019/08/05/js手写模板引擎/" rel="prev" title="js手写模板引擎">
+                js手写模板引擎 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/lostmyself.github.io/images/3.jpg" alt="sxw">
+            
+              <p class="site-author-name" itemprop="name">sxw</p>
+              <p class="site-description motion-element" itemprop="description">从一而终</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/lostmyself.github.io/archives/">
+              
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/lostmyself.github.io/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/lostmyself.github.io/tags/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/sxw19960127" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="1183476700@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">sxw</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">51.9k</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lostmyself.github.io/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lostmyself.github.io/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lostmyself.github.io/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lostmyself.github.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lostmyself.github.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lostmyself.github.io/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lostmyself.github.io/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/lostmyself.github.io/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/lostmyself.github.io/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/lostmyself.github.io/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/lostmyself.github.io/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/lostmyself.github.io/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/lostmyself.github.io/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/lostmyself.github.io/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+
+<script src="/lostmyself.github.io/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"/lostmyself.github.io/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":200,"height":350},"mobile":{"show":true},"log":false,"tagMode":false});</script></body>
+</html>
+
