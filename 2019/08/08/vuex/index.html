@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="日记,">
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="function doDecrypt (pwd, onError) { 	console.log(&apos;in doDecrypt&apos;); 	const txt = document.getElementById(&apos;enc_content&apos;).innerHTML; 	let plantext; 	try { 		const bytes = CryptoJS.AES.decrypt(txt, pwd);">
-<meta name="keywords" content="日记">
+<meta name="description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010110210">
+<meta name="keywords" content="web前端开发">
 <meta property="og:type" content="article">
-<meta property="og:title" content="日记">
-<meta property="og:url" content="https://sxw19960127.github.io/lostmyself.github.io/2019/08/03/日记/index.html">
+<meta property="og:title" content="vuex">
+<meta property="og:url" content="https://sxw19960127.github.io/lostmyself.github.io/2019/08/08/vuex/index.html">
 <meta property="og:site_name" content="sxw个人博客">
-<meta property="og:description" content="function doDecrypt (pwd, onError) { 	console.log(&apos;in doDecrypt&apos;); 	const txt = document.getElementById(&apos;enc_content&apos;).innerHTML; 	let plantext; 	try { 		const bytes = CryptoJS.AES.decrypt(txt, pwd);">
+<meta property="og:description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010110210">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-04T00:05:01.130Z">
+<meta property="og:updated_time" content="2019-08-08T12:28:48.088Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="日记">
-<meta name="twitter:description" content="function doDecrypt (pwd, onError) { 	console.log(&apos;in doDecrypt&apos;); 	const txt = document.getElementById(&apos;enc_content&apos;).innerHTML; 	let plantext; 	try { 		const bytes = CryptoJS.AES.decrypt(txt, pwd);">
+<meta name="twitter:title" content="vuex">
+<meta name="twitter:description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010110210">
 
 
 
@@ -120,14 +120,14 @@
 
 
 
-  <link rel="canonical" href="https://sxw19960127.github.io/lostmyself.github.io/2019/08/03/日记/">
+  <link rel="canonical" href="https://sxw19960127.github.io/lostmyself.github.io/2019/08/08/vuex/">
 
 
 
 
 
 
-  <title>日记 | sxw个人博客</title>
+  <title>vuex | sxw个人博客</title>
   
 
 
@@ -265,7 +265,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://sxw19960127.github.io/lostmyself.github.io/lostmyself.github.io/2019/08/03/日记/">
+    <link itemprop="mainEntityOfPage" href="https://sxw19960127.github.io/lostmyself.github.io/lostmyself.github.io/2019/08/08/vuex/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="sxw">
@@ -282,7 +282,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">日记</h1>
+          <h1 class="post-title" itemprop="name headline">vuex</h1>
         
 
         <div class="post-meta">
@@ -294,8 +294,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-03T00:21:05+08:00">
-                2019-08-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-08T20:28:28+08:00">
+                2019-08-08
               </time>
             
 
@@ -304,28 +304,6 @@
             
           </span>
 
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/lostmyself.github.io/categories/日记/" itemprop="url" rel="index">
-                    <span itemprop="name">日记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -353,7 +331,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  162
+                  637
                 </span>
               
 
@@ -369,7 +347,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  3
                 </span>
               
             </div>
@@ -390,46 +368,9 @@
       
 
       
-        <script src="/lostmyself.github.io/js/crypto-js.js"></script>
-<script>
-function doDecrypt (pwd, onError) {
-	console.log('in doDecrypt');
-	const txt = document.getElementById('enc_content').innerHTML;
-	let plantext;
-	try {
-		const bytes = CryptoJS.AES.decrypt(txt, pwd);
-		var plaintext = bytes.toString(CryptoJS.enc.Utf8);
-	} catch(err) {
-		if(onError) {
-			onError(err);
-		}
-		return;
-	}
-	document.getElementById('enc_content').innerHTML = plaintext;
-	document.getElementById('enc_content').style.display = 'block';
-	document.getElementById('enc_passwd').style.display = 'none';
-	if(typeof MathJax !== 'undefined') {
-		MathJax.Hub.Queue(
-			['resetEquationNumbers', MathJax.InputJax.TeX],
-			['PreProcess', MathJax.Hub],
-			['Reprocess', MathJax.Hub]
-		);
-	}
-}
-</script>
-<div id="enc_content" style="display:none">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</div>
-<div id="enc_passwd"> <input id="enc_pwd_input" type="password" style="border-radius: 5px;border-style: groove;height: 30px;width: 50%;cursor: auto;font-size: 102%;color: currentColor;outline: none;text-overflow: initial;padding-left: 5px;" onkeydown="if (event.keyCode == 13) { decrypt(); return false;}"> <input type="submit" value="解&nbsp;密" onclick="decrypt()" style="width: 58px;height: 34px;border-radius: 5px;background-color: white;border-style: solid;color: currentColor;"><div id="enc_error" style="display: inline-block;color: #d84527;margin-left: 10px"></div>
-<script>
-var onError = function(error) {
-	document.getElementById("enc_error").innerHTML = "password error!"
-};
-function decrypt() {
-var passwd = document.getElementById("enc_pwd_input").value;
-console.log(passwd);
-doDecrypt(passwd, onError);
-}
-</script>
-</div>
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br></pre></td><td class="code"><pre><span class="line">VueX状态管理系统</span><br><span class="line">npm install vuex</span><br><span class="line"></span><br><span class="line">store.js中</span><br><span class="line">import Vue from &quot;vue&quot;</span><br><span class="line">import Vuex from &quot;vuex&quot;</span><br><span class="line">Vue.use(Vuex)</span><br><span class="line">export default new Vuex.Store(&#123;</span><br><span class="line">   state: &#123;</span><br><span class="line">      count: 0</span><br><span class="line">   &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">APP.js中:</span><br><span class="line">import store from &apos;./store.js&apos;</span><br><span class="line">new Vue(&#123;</span><br><span class="line">   store: store</span><br><span class="line">&#125;)</span><br><span class="line">-------------------------------------------</span><br><span class="line">组件中获取数据:</span><br><span class="line">&lt;script&gt;</span><br><span class="line">   export default&#123;</span><br><span class="line">      computed: &#123;</span><br><span class="line">         count() &#123;</span><br><span class="line">            return this.$store,state.count</span><br><span class="line">         &#125;</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">---------------------------------------------</span><br><span class="line">组件中改变数据的值:</span><br><span class="line">this.$store,state.count ++</span><br><span class="line">-------------------------------------------</span><br><span class="line"></span><br><span class="line">getters 属性:作用: 当我们需要进行数值计算的时候,在a组件中和在b组件中操作数据一样的运算的时候,我们可以把它提取出来;或者当我们从后台传过来的数据我们需要对数据进行处理的时候,也可以在getters里面进行操作;</span><br><span class="line">import Vue from &quot;vue&quot;</span><br><span class="line">import Vuex from &quot;vuex&quot;</span><br><span class="line">Vue.use(Vuex)</span><br><span class="line">export default new Vuex.Store(&#123;</span><br><span class="line">   state: &#123;</span><br><span class="line">      count: 0</span><br><span class="line">   &#125;,</span><br><span class="line">   getters: &#123; //作用和计算属性相似,只要检测到state发生变化,立即执行函数return出最新的数值</span><br><span class="line">      doubleCount(state) &#123;</span><br><span class="line">         return state.count * 2;</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">在需要进行运算处理的函数中获取使用数值:</span><br><span class="line">return this.$store.getters.doubleCount; //写在计算属性里面的,主要state数值发生变化立即会进行更新</span><br><span class="line">-------------------------------------------</span><br><span class="line">由于vuex是状态管理系统,要追踪数据的,所以我们不允许在组件中进行数据的加减,只能如下进行数据的变动:</span><br><span class="line">import Vue from &quot;vue&quot;</span><br><span class="line">import Vuex from &quot;vuex&quot;</span><br><span class="line">Vue.use(Vuex)</span><br><span class="line">export default new Vuex.Store(&#123;</span><br><span class="line">   state: &#123;</span><br><span class="line">      count: 0</span><br><span class="line">   &#125;,</span><br><span class="line">   getters: &#123; </span><br><span class="line">      doubleCount(state) &#123;</span><br><span class="line">         return state.count * 2;</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;,</span><br><span class="line">   mutations: &#123; //只允许将数据的变动函数写在这个里面,不允许有异步操作</span><br><span class="line">      increaseCount(state) &#123;</span><br><span class="line">         state.count ++;</span><br><span class="line">      &#125;,</span><br><span class="line">      decreaseCount(state) &#123;</span><br><span class="line">         state.count --;</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;)</span><br><span class="line">---</span><br><span class="line">在组件中怎么去调用这个定义好的函数呢？</span><br><span class="line">// 逻辑处理部分 this.$store.commit(&quot;increaseCount&quot;)</span><br><span class="line">-------------------------------------------</span><br><span class="line">export default new Vuex.Store(&#123;</span><br><span class="line">   state: &#123;</span><br><span class="line">      count: 0</span><br><span class="line">   &#125;,</span><br><span class="line">   getters: &#123; </span><br><span class="line">      doubleCount(state) &#123;</span><br><span class="line">         return state.count * 2;</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;,</span><br><span class="line">   mutations: &#123; //只允许将数据的变动函数写在这个里面,不允许有异步操作</span><br><span class="line">      increaseCount(state) &#123;</span><br><span class="line">         state.count ++;</span><br><span class="line">      &#125;,</span><br><span class="line">      decreaseCount(state) &#123;</span><br><span class="line">         state.count --;</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;，</span><br><span class="line">   actions: &#123;</span><br><span class="line">      actionsIncrease(context) &#123;</span><br><span class="line">         console.log(context)</span><br><span class="line">         setTimeout(() =&gt; &#123;</span><br><span class="line">            context.commit(&quot;increaseCount&quot;, 5)</span><br><span class="line">         &#125;, 1000)</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;)</span><br><span class="line">---</span><br><span class="line">调用: this.$store.dispatch(&quot;actionsIncrease&quot;)</span><br><span class="line">-----------------------------------------------------------</span><br><span class="line">辅助函数,作用是简化我们获取数据等操作:</span><br><span class="line">&lt;script&gt;</span><br><span class="line">   import &#123;mapState,mapGetters&#125; from &quot;vuex&quot;</span><br><span class="line">   export default &#123;</span><br><span class="line">      computed: &#123;</span><br><span class="line">         ...mapState([&quot;count&quot;,&quot;value&quot;]), //获取state中的count值和value值</span><br><span class="line">         ...mapGetters([&quot;doubleCount&quot;]),</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">...</span><br><span class="line">&lt;script&gt;</span><br><span class="line">   import &#123;mapMutations,mapActions&#125; from &quot;vuex&quot;</span><br><span class="line">   export default &#123;</span><br><span class="line">      methods: &#123;</span><br><span class="line">         ...mapActions([&quot;actionsIncrease&quot;]),</span><br><span class="line">         ...mapMutations([&quot;decreaseCount&quot;])</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+
       
     </div>
     
@@ -444,12 +385,6 @@ doDecrypt(passwd, onError);
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/lostmyself.github.io/tags/日记/" rel="tag"># 日记</a>
-          
-        </div>
-      
 
       
       
@@ -459,8 +394,8 @@ doDecrypt(passwd, onError);
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/lostmyself.github.io/2019/08/02/ES6进阶/" rel="next" title="ES6进阶">
-                <i class="fa fa-chevron-left"></i> ES6进阶
+              <a href="/lostmyself.github.io/2019/08/08/vue-router/" rel="next" title="vue-router">
+                <i class="fa fa-chevron-left"></i> vue-router
               </a>
             
           </div>
@@ -469,8 +404,8 @@ doDecrypt(passwd, onError);
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/lostmyself.github.io/2019/08/03/首页/" rel="prev" title="奇文分享">
-                奇文分享 <i class="fa fa-chevron-right"></i>
+              <a href="/lostmyself.github.io/2019/08/08/网络进阶/" rel="prev" title="网络进阶">
+                网络进阶 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
