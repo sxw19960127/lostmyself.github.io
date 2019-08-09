@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Vue全家桶,">
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273axios连接服务器发送ajax请求vue-resource也是用来发送ajax请求的npm install axios --">
-<meta name="keywords" content="web前端开发">
+<meta name="description" content="function doDecrypt (pwd, onError) { 	console.log(&apos;in doDecrypt&apos;); 	const txt = document.getElementById(&apos;enc_content&apos;).innerHTML; 	let plantext; 	try { 		const bytes = CryptoJS.AES.decrypt(txt, pwd);">
+<meta name="keywords" content="Vue全家桶">
 <meta property="og:type" content="article">
 <meta property="og:title" content="axios">
 <meta property="og:url" content="https://sxw19960127.github.io/lostmyself.github.io/2019/08/08/axios/index.html">
 <meta property="og:site_name" content="sxw个人博客">
-<meta property="og:description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273axios连接服务器发送ajax请求vue-resource也是用来发送ajax请求的npm install axios --">
+<meta property="og:description" content="function doDecrypt (pwd, onError) { 	console.log(&apos;in doDecrypt&apos;); 	const txt = document.getElementById(&apos;enc_content&apos;).innerHTML; 	let plantext; 	try { 		const bytes = CryptoJS.AES.decrypt(txt, pwd);">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-08T07:14:59.006Z">
+<meta property="og:updated_time" content="2019-08-09T09:02:26.130Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="axios">
-<meta name="twitter:description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273axios连接服务器发送ajax请求vue-resource也是用来发送ajax请求的npm install axios --">
+<meta name="twitter:description" content="function doDecrypt (pwd, onError) { 	console.log(&apos;in doDecrypt&apos;); 	const txt = document.getElementById(&apos;enc_content&apos;).innerHTML; 	let plantext; 	try { 		const bytes = CryptoJS.AES.decrypt(txt, pwd);">
 
 
 
@@ -305,6 +305,28 @@
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/lostmyself.github.io/categories/Web前端开发/" itemprop="url" rel="index">
+                    <span itemprop="name">Web前端开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -331,7 +353,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  609
+                  423
                 </span>
               
 
@@ -368,9 +390,46 @@
       
 
       
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line">axios连接服务器</span><br><span class="line">发送ajax请求</span><br><span class="line">vue-resource也是用来发送ajax请求的</span><br><span class="line">npm install axios --save 下载axios并且保存到运行时的依赖中去</span><br><span class="line">firebase 免费提供数据库,提倡前端不需要后端直接操作数据库,适合创业公司的理念;</span><br><span class="line">---------------------------------------------------------------------</span><br><span class="line">发送数据:</span><br><span class="line">axios.post(第一个参数是请求地址,第二个参数请求头(选填),第三个参数是数据)</span><br><span class="line">     .then( res =&gt; &#123;</span><br><span class="line">        console.log(res)</span><br><span class="line">     &#125;, (err) =&gt; &#123;</span><br><span class="line">        console.log(err)</span><br><span class="line">     &#125;)</span><br><span class="line">-----------------------------------</span><br><span class="line">获取数据:</span><br><span class="line">&lt;script&gt;</span><br><span class="line">   import axios from &quot;axios&quot;</span><br><span class="line">   export default&#123;</span><br><span class="line">      data() &#123;</span><br><span class="line">         return &#123;</span><br><span class="line">            email: &apos;&apos;</span><br><span class="line">         &#125;</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;,</span><br><span class="line">   created() &#123;</span><br><span class="line">      axios.get(第一个参数是获取数据的地址,第二个参数是请求头配置项(选填))</span><br><span class="line">            .then( data =&gt; &#123;</span><br><span class="line">                  // 处理数据</span><br><span class="line">                  // console.log(data)</span><br><span class="line">                  const arr = [];</span><br><span class="line">                  for(let key in data.data) &#123;</span><br><span class="line">                     let myData = data.data[key];</span><br><span class="line">                     myData.id = key;</span><br><span class="line">                     arr.push(myData);</span><br><span class="line">                  &#125;</span><br><span class="line">                  this.email = arr[i].email</span><br><span class="line">            &#125;, err =&gt; &#123;</span><br><span class="line"></span><br><span class="line">            &#125;)</span><br><span class="line">      &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">-----------------------------------</span><br><span class="line">全局进行配置项:</span><br><span class="line">由于局部进行配置项只要再第二个参数中使用对象的形式进行就行了,这里主要来进行全局配置的讲解:</span><br><span class="line">在main.js中:</span><br><span class="line">import axio from &apos;axios&apos;</span><br><span class="line">axios.defaults.baseURL = &quot;https://www...&quot; //全局配置请求地址</span><br><span class="line">axios.defaults.headers.common[&quot;Accept&quot;] = &quot;application/json&quot; //这里可以单独进行get的配置和post的配置,我们使用common进行通用配置,请求头 [&apos;Accept&apos;],接收什么样的数据,要接收一个 application/json json形式的数据 / 在浏览器的Network中显示: Accept: application/json</span><br><span class="line">axios.defaults.headers.post[&quot;Authorization&quot;] = &quot;123&quot;</span><br><span class="line">-------------------------------</span><br><span class="line">拦截器:</span><br><span class="line">(将请求拦截掉): </span><br><span class="line">axios.interceptors.request.use( config =&gt; &#123;</span><br><span class="line">   console.log(config)</span><br><span class="line">   console.log(&quot;loading&quot;)</span><br><span class="line">   // 相关逻辑操作,像加loading...</span><br><span class="line">   return config //必须要return,不然请求信息不会显示出来,一直存在被拦截状态</span><br><span class="line">&#125;)</span><br><span class="line">(将返回的数据在页面呈现前拦截掉):</span><br><span class="line">axios.interceptors.response.use( data =&gt; &#123;</span><br><span class="line">   console.log(data.status === &quot;404&quot;)</span><br><span class="line">   //这里有一个status状态码,我们可以根据返回的状态码进行相关处理操作,像弹出一个alert框,提示用户信息出错去联系管理员...</span><br><span class="line">   return data //同样要进行return 操作</span><br><span class="line">&#125;)</span><br><span class="line">-------------------------------</span><br><span class="line">创造额外的axios实例: 用来解决请求的链接地址比较多的情况</span><br><span class="line">配置两份不同的请求:</span><br><span class="line">axios.js里:</span><br><span class="line">import axios from &quot;axios&quot;;</span><br><span class="line">const instance = axios.create()</span><br><span class="line">instance.defaults.baseURL = &quot;https://www...&quot; //不一样的请求地址</span><br><span class="line">export default instance</span><br><span class="line">用法和之前的一样!</span><br></pre></td></tr></table></figure>
-
-
+        <script src="/lostmyself.github.io/js/crypto-js.js"></script>
+<script>
+function doDecrypt (pwd, onError) {
+	console.log('in doDecrypt');
+	const txt = document.getElementById('enc_content').innerHTML;
+	let plantext;
+	try {
+		const bytes = CryptoJS.AES.decrypt(txt, pwd);
+		var plaintext = bytes.toString(CryptoJS.enc.Utf8);
+	} catch(err) {
+		if(onError) {
+			onError(err);
+		}
+		return;
+	}
+	document.getElementById('enc_content').innerHTML = plaintext;
+	document.getElementById('enc_content').style.display = 'block';
+	document.getElementById('enc_passwd').style.display = 'none';
+	if(typeof MathJax !== 'undefined') {
+		MathJax.Hub.Queue(
+			['resetEquationNumbers', MathJax.InputJax.TeX],
+			['PreProcess', MathJax.Hub],
+			['Reprocess', MathJax.Hub]
+		);
+	}
+}
+</script>
+<div id="enc_content" style="display:none">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</div>
+<div id="enc_passwd"> <input id="enc_pwd_input" type="password" style="border-radius: 5px;border-style: groove;height: 30px;width: 50%;cursor: auto;font-size: 102%;color: currentColor;outline: none;text-overflow: initial;padding-left: 5px;" onkeydown="if (event.keyCode == 13) { decrypt(); return false;}"> <input type="submit" value="解&nbsp;密" onclick="decrypt()" style="width: 58px;height: 34px;border-radius: 5px;background-color: white;border-style: solid;color: currentColor;"><div id="enc_error" style="display: inline-block;color: #d84527;margin-left: 10px"></div>
+<script>
+var onError = function(error) {
+	document.getElementById("enc_error").innerHTML = "password error!"
+};
+function decrypt() {
+var passwd = document.getElementById("enc_pwd_input").value;
+console.log(passwd);
+doDecrypt(passwd, onError);
+}
+</script>
+</div>
       
     </div>
     
@@ -384,6 +443,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/lostmyself.github.io/tags/Vue全家桶/" rel="tag"># Vue全家桶</a>
+          
+        </div>
       
 
       
@@ -404,8 +469,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/lostmyself.github.io/2019/08/08/vue-router/" rel="prev" title="vue-router">
-                vue-router <i class="fa fa-chevron-right"></i>
+              <a href="/lostmyself.github.io/2019/08/08/Vue-Router/" rel="prev" title="Vue-Router">
+                Vue-Router <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -476,7 +541,7 @@
               
                 <a href="/lostmyself.github.io/archives/">
               
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -498,7 +563,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/lostmyself.github.io/tags/index.html">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -565,7 +630,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">78.7k</span>
+    <span title="Site words total count">152.3k</span>
   
 </div>
 
