@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lostmyself.github.io/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lostmyself.github.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/lostmyself.github.io/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/lostmyself.github.io/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/lostmyself.github.io/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/lostmyself.github.io/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/lostmyself.github.io/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Git,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="12345678910111213141516171819202122Git --- 分布式版本控制系统Git创始人 linuxlinux一开始采用bitkeeper充当分布式版本控制系统,进行代码的合并。有一天linux社区有人黑了bitkeeper之后便没有了其使用权,于是linux花了10天写出了git。版本控制系统是一个工具,用以保存我们每个阶段的代码,可以切换读取各个阶段所提交的代码。好">
+<meta name="keywords" content="Git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git">
+<meta property="og:url" content="https://sxw19960127.github.io/lostmyself.github.io/2019/08/13/4.git/index.html">
+<meta property="og:site_name" content="sxw个人博客">
+<meta property="og:description" content="12345678910111213141516171819202122Git --- 分布式版本控制系统Git创始人 linuxlinux一开始采用bitkeeper充当分布式版本控制系统,进行代码的合并。有一天linux社区有人黑了bitkeeper之后便没有了其使用权,于是linux花了10天写出了git。版本控制系统是一个工具,用以保存我们每个阶段的代码,可以切换读取各个阶段所提交的代码。好">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-08-13T03:02:28.333Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Git">
+<meta name="twitter:description" content="12345678910111213141516171819202122Git --- 分布式版本控制系统Git创始人 linuxlinux一开始采用bitkeeper充当分布式版本控制系统,进行代码的合并。有一天linux社区有人黑了bitkeeper之后便没有了其使用权,于是linux花了10天写出了git。版本控制系统是一个工具,用以保存我们每个阶段的代码,可以切换读取各个阶段所提交的代码。好">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/lostmyself.github.io/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://sxw19960127.github.io/lostmyself.github.io/2019/08/13/4.git/">
+
+
+
+
+
+
+  <title>Git | sxw个人博客</title>
+  
+
+
+
+
+
+
+
+
+  
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/lostmyself.github.io/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">sxw个人博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">你若盛开,蝴蝶自来</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/lostmyself.github.io/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/lostmyself.github.io/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/lostmyself.github.io/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/lostmyself.github.io/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/lostmyself.github.io/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://sxw19960127.github.io/lostmyself.github.io/lostmyself.github.io/2019/08/13/4.git/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="sxw">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/lostmyself.github.io/images/3.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="sxw个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Git</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-13T01:11:21+08:00">
+                2019-08-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/lostmyself.github.io/categories/Web前端开发/" itemprop="url" rel="index">
+                    <span itemprop="name">Web前端开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  5.5k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  20
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">Git --- 分布式版本控制系统</span><br><span class="line">Git创始人 linux</span><br><span class="line">linux一开始采用bitkeeper充当分布式版本控制系统,进行代码的合并。有一天linux社区有人黑了bitkeeper之后便没有了其使用权,于是linux花了10天写出了git。</span><br><span class="line">版本控制系统是一个工具,用以保存我们每个阶段的代码,可以切换读取各个阶段所提交的代码。好处:</span><br><span class="line">	1.便于自己或者他人去看我们的代码是如何从无到有实现的;</span><br><span class="line">	2.代码回滚;</span><br><span class="line">	(当为项目添加一个新功能,我们完成了需求并且在本地测试是没有问题的,但提交上线时出现了bug。这时我们需要做两步操作:1.修复bug;2.代码回滚。将线上的代码回滚到最近一个没有bug的版本)</span><br><span class="line">版本控制系统:</span><br><span class="line">	1.本地版本控制系统; </span><br><span class="line">	2.集中式版本控制系统; </span><br><span class="line">	3.分布式版本控制系统;</span><br><span class="line">本地版本控制系统:</span><br><span class="line">	1.没有备份,所有阶段代码和版本都保存在自己的电脑里;</span><br><span class="line">	2.对协作开发不友好;</span><br><span class="line">集中式版本控制系统:</span><br><span class="line">	1.必须要联网才能进行工作;</span><br><span class="line">	2.如果中央服务器崩溃了,则每个人都是无法工作的;</span><br><span class="line">分布式版本控制系统:</span><br><span class="line">	1.可以自动的进行代码合并;</span><br><span class="line">	2.版本库存在于中央服务器中以及每个人的电脑中;</span><br><span class="line">	3.对协作开发非常友好;</span><br><span class="line">	4.中央服务器只充当中转的作用,只有当最终版本确定以后才会上传到中央服务器;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">安装git:</span><br><span class="line">	1.官网 https://git-scm.com</span><br><span class="line">配置git:</span><br><span class="line">	1.用户信息配置: </span><br><span class="line">		git config --global user.name shuxiaowei //配置用户名</span><br><span class="line">		git config --global user.email 1183476700@qq.com //配置邮箱</span><br><span class="line">检查配置是否成功: </span><br><span class="line">	1.git config --global user.name //回车查看用户名是否配置成功</span><br><span class="line">	2.git config --global user.email //回车查看邮箱是否配置成功</span><br><span class="line">	3.git config --list //回车查看所有配置项信息</span><br><span class="line">获取Git仓库:</span><br><span class="line">	1.从现有目录中初始化,让当前项目被git仓库所管理: git init</span><br><span class="line">	2.将远程的仓库拉下来,克隆现有的仓库: git clone url</span><br><span class="line">	(复制存在于服务器端的仓库链接地址;打开终端,cd Desktop/;git clone url;实现克隆仓库到本地)</span><br><span class="line">流程:</span><br><span class="line">	1.先在工作目录中敲代码;</span><br><span class="line">	2.暂时保存于暂存区域;(暂存区域是一个虚拟的可以暂时保存各个阶段代码的地方)</span><br><span class="line">	3.将完整版的代码提交到git仓库; </span><br><span class="line">快照:</span><br><span class="line">	1.git仓库存放各个阶段的代码是以快照的形式储存的;</span><br><span class="line">	2.快照里面包含了提交者的信息,方便定位到是谁提交了这份代码;</span><br><span class="line">	3.可以给快照附带描述语句,关于自己在这个阶段做了什么事情;</span><br><span class="line">	4.快照还有一个编号如:98ca9/34ac2/f30ab,我们可以根据编号进行阶段代码的切换;</span><br><span class="line">Git更新状态命令:</span><br><span class="line">	1.追踪文件与暂存: git add (从工作目录到暂存区域)</span><br><span class="line">	2.提交更新: git commit (从暂存区域到Git仓库)</span><br><span class="line">	3.查看状态: git status</span><br><span class="line">	4.查看修改: git diff</span><br><span class="line">例子:</span><br><span class="line">	1.当我们在工作目录中完成了html,并且需要将他保存到暂存区域的时候: git add index.html</span><br><span class="line">	2.当我们修改了html之后再次进行保存: git add index.html</span><br><span class="line">	3.当我们即修改了html,又修改了css,需要对所有文件进行保存到暂存区域: git add .</span><br><span class="line">	4.一个版本的代码完成了,我们需要对其进行照相: git commit -m &quot;第一次提交&quot;</span><br><span class="line">文件的状态:</span><br><span class="line">	1.没有追踪的状态;</span><br><span class="line">	2.没有修改的状态;</span><br><span class="line">	3.修改过的状态;</span><br><span class="line">	4.暂存的状态;</span><br><span class="line">git status指令,会告诉我们哪些文件是新建了没有被追踪的,哪些文件是被修改了的,只要当前文件与上一个版本有任何的修改都会被git status出来;</span><br><span class="line">git diff HEAD指令,可以比较工作目录与上一个版本git仓库有何不同;</span><br><span class="line">git diff --staged指令,可以比较暂存区域与上一个版本git仓库有何不同;</span><br><span class="line">git diff指令,默认比较工作目录与暂存区域有何不同;</span><br><span class="line">Git查看提交历史:</span><br><span class="line">	git log指令,会显示提交历史信息,方便我们去查看项目是怎么一步步写成的;</span><br><span class="line">Git撤销:</span><br><span class="line">	1.撤销,恢复到暂存时刻的代码: git checkout -- index.html</span><br><span class="line">	2.撤销暂存,恢复到上一个版本的代码: git reset HEAD index.html </span><br><span class="line">	(怎么撤销回上一个暂存区域/怎么撤销回上一个版本)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">Git分支: &quot;指针&quot;</span><br><span class="line">大部分程序的主分支都是master,即master指向当前最稳定的版本;</span><br><span class="line">HEAD指针就是告诉Git,我想在当前哪一个平行世界里玩;</span><br><span class="line">git commit -a -m &quot;第一次提交&quot;;(所有文件都在被追踪的情况下,省略git add . 而直接提交成一个版本);</span><br><span class="line">git branch/git status/git log (查看现在在哪个分支上)</span><br><span class="line">注意: 工作中使用分支,我们不要在主分支上修改代码;</span><br><span class="line">git merge issus1;(在master分支上敲击命令,用以将issus1分支融合到master分支上)</span><br><span class="line">流程:</span><br><span class="line">    git init //初始化</span><br><span class="line">    git add .</span><br><span class="line">    git commit -m &quot;稳定版本&quot; //提交了master稳定版本</span><br><span class="line">    git branch lunbotu //创建新分支,用以开发轮播图功能</span><br><span class="line">    git checkout lunbotu //切换到轮播图分支</span><br><span class="line">    git add .</span><br><span class="line">    git commit -m &quot;写一半的轮播图&quot; </span><br><span class="line">    git checkout master //master主分支上发现紧急bug</span><br><span class="line">    git branch issus1 //创建另外分支issus1用以解决紧急bug</span><br><span class="line">    git chekout issus1 //切换到分支issus1</span><br><span class="line">    git add .</span><br><span class="line">    git commit -m &quot;修复bug&quot;</span><br><span class="line">    git checkout master //回到主分支master,准备融合</span><br><span class="line">    git merge issus1 //将issus1融合进主分支master分支,这是会报融合错误,需解决</span><br><span class="line">    git checkout lunbotu //分支切换回轮播图</span><br><span class="line">    git add .</span><br><span class="line">    git commit -m &quot;轮播图提交了&quot;</span><br><span class="line">    git checkout master</span><br><span class="line">    git merge lunbotu //将写好的轮播图融合进去</span><br><span class="line">    git add .</span><br><span class="line">    git commit -m &quot;最稳定版本&quot;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">GitHub的创建与使用</span><br><span class="line">Github 码云 开源中国</span><br><span class="line">git remote //用以查看当前本地仓库有于任一远程仓库有关联吗</span><br><span class="line">git remote add origin http:...	//将本地仓库与远程仓库相连接并且给远程仓库取了小名origin</span><br><span class="line">git remote	//用以检验关联是否成功</span><br><span class="line">本地仓库和远程仓库可以是一对多的关系,我们可以将本地仓库与github,码云关联在一起都是可以的;</span><br><span class="line">git remotw -v	//用以查看当前本地仓库与哪些远程仓库建立了链接关系;</span><br><span class="line">git push -u origin master	//推送到远程仓库的主分支master上,-u表示我最近一段时间都是往这个远程仓库推送的,下面再推送的话,直接git push就行了,如果要更换远程仓库,git push github master;</span><br><span class="line">与远程仓库建立链接到底做了一件什么事情,git branch可以查看本地的分支,git branch -va会把所有的分支都给列出来,会发现远程仓库的一个镜像被保存在了本地;</span><br><span class="line">---------------------------------------------------------------------------------</span><br><span class="line">git clone http://... //克隆远程仓库的地址到本地</span><br><span class="line">git log //用以查看版本</span><br><span class="line">git fetch origin //当我们向远程仓库提交代码的时候,如果当前本地的版本落后于远程仓库的版本是无法进行提交的,报错,所以我们需要先将远程仓库的代码全部拉取到本地;</span><br><span class="line">git branch -va	//检查一下是否有添加新的分支到本地仓库;</span><br><span class="line">git merge origin/master	//将本地仓库与远程仓库进行合并;</span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot;融合了轮播图和导航栏&quot;</span><br><span class="line">git push</span><br><span class="line">---------------------------------------------------------------------------------------</span><br><span class="line">:q 推出</span><br><span class="line">在多人开发中我们都是先拉取代码再进行推送代码,将最新版本的远程仓库上的代码拉取下来与自己要提交的版本进行融合,再向远程仓库进行push操作;</span><br><span class="line">git remote</span><br><span class="line">git remote add github https://...</span><br><span class="line">git remote</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br></pre></td><td class="code"><pre><span class="line">git 是一个分布式的版本控制系统;</span><br><span class="line">版本控制系统是一个工具,用来保存我们各个阶段的代码;</span><br><span class="line">我们每一个阶段提交的代码就是一个版本,版本控制系统可以随时切换任意一个版本,去读取里面的内容;</span><br><span class="line">好处: </span><br><span class="line">1.可以让我们更加清晰直观的去发现我们的代码是怎么从无到有去写的;</span><br><span class="line">如果我们把每一个版本的代码提交的都非常好,有利于自己日后阅读或者是方便别人来阅读;</span><br><span class="line">2.可以进行代码的回滚;</span><br><span class="line">当我们满足需求去实现一个功能的时候,测试时没有发现问题,但在上线的时候发现了问题,这个时候我们需要把我们的代码回滚到最近的一个没有问题的版本,让他回到当初没有bug的时候,再在本地进行bug的修复;</span><br><span class="line">版本控制系统: 1.本地版本控制系统;2.集中式版本控制系统;3.分布式版本控制系统;</span><br><span class="line">	本地版本控制系统: 本地存着所有的版本,缺点(没有备份,不利于协作开发与合并);</span><br><span class="line">	集中式版本控制系统(svn): 中央服务器中存着所有的版本,缺点(必须联网才能工作,从服务器拉取数据的时候,需要有网络,以及提交数据的时候也需要网络,如果中央服务器崩溃了,那我们就无法去存取数据了)</span><br><span class="line">	分布式版本控制系统: 完整的版本不仅存在于中央服务器上,还存在于每一个人的电脑上,我们只需要完成我们的操作,在本地完成我们的需求,到最后整合的时候往服务器上去提交,服务器只充当一个中转的作用,充当一个备份的作用,和集中式版本控制系统的中央服务器相比,降低了服务器的重要性,当服务器崩溃的时候,并不会影响我们电脑里面的版本库;还有一个好处是可以自动把我们的代码进行合并;</span><br><span class="line">	git诞生记 linux bitkeeper,linux社区有人黑了bitkeeper,所以bitkeeper收回使用权,然后linux用了10天写出git</span><br><span class="line">git官网: https://git-scm.com</span><br><span class="line">git配置 &amp; 用户信息:</span><br><span class="line">    git config --global user.name shuxiaowei</span><br><span class="line">    git config --global user.email 1183476700@qq.com</span><br><span class="line">    检查配置: git config --list</span><br><span class="line">获取Git仓库</span><br><span class="line">从现在有的目录中初始化: git init</span><br><span class="line">克隆现有的仓库: git clone url</span><br><span class="line">三个工作区域: 工作目录,暂存区域,Git仓库(各个阶段的版本在git仓库里面是以快照的形式来存储的)</span><br><span class="line">快照就是记录各个阶段的代码情况,里面的信息包含了作者,还有一个重要的hash值是一个编号,我们可以根据这个编号进行版本的切换,git仓库里面存的都是各式各样的快照;</span><br><span class="line">Git更新状态命令</span><br><span class="line">追踪文件与暂存已经修改文件 git add (从工作目录到暂存区域)</span><br><span class="line">提交更新 git commit (从暂存区域到Git仓库)</span><br><span class="line">查看状态 git status</span><br><span class="line">查看修改 git diff</span><br><span class="line">---------------------</span><br><span class="line">git init 初始化</span><br><span class="line">git add index.html 把index.html文件保存到暂存区域</span><br><span class="line">git add . 把所有修改过的操作下的文件全部都保存到暂存区域</span><br><span class="line">git commit -m &quot;第一次提交&quot; 将第一阶段的版本提交到git仓库</span><br><span class="line">--------------------------</span><br><span class="line">文件状态:</span><br><span class="line">使用git status可以查看当前工作目录中所有文件的状态</span><br><span class="line">1.没有追踪的状态 Untracked;</span><br><span class="line">2.没有修改的状态 Unmodified;</span><br><span class="line">3.修改过的状态 modified;</span><br><span class="line">4.暂存的状态 Staged;</span><br><span class="line">git diff有三个不同的操作:</span><br><span class="line">比较工作目录和暂存区域之间有什么不同;</span><br><span class="line">比较工作目录和Git仓库之间有什么不同;</span><br><span class="line">比较暂存区域与Git仓库之间有什么不同;</span><br><span class="line">当我们就输入一个git diff的时候默认比较的是工作目录和暂存区域</span><br><span class="line">git diff --staged 比较的是暂存区域和上一个版本之间有什么不同</span><br><span class="line">git diff HEAD 比较当前工作目录和上一个版本有什么不同</span><br><span class="line">Git查看提交历史</span><br><span class="line">git log</span><br><span class="line">Git撤销</span><br><span class="line">撤销到暂存 git checkout -- index.html</span><br><span class="line">撤销暂存 git reset HEAD &lt;file&gt;</span><br><span class="line">Git分支: 指针</span><br><span class="line">默认分支master,指向当前最新的一个版本</span><br><span class="line">创建分支 git branch testing</span><br><span class="line">HEAD指针</span><br><span class="line">有每一期的不同版本,有两个分支(平行世界,针对版本的两个处理操作)分别是master和testing,HEAD指针表示想要在哪个分支(平行世界)去继续我的操作,默认情况下是HEAD指向master,因为我们默认的主分支是master</span><br><span class="line">分支切换 git checkout&lt;名字&gt;</span><br><span class="line">git branch -d index.html 这个指令好像是删除文件的指令</span><br><span class="line">git init 创建空的项目</span><br><span class="line">git add .把所有修改过的操作下的文件全部都保存到暂存区域</span><br><span class="line">git commit -m &quot;第一次&quot; 将第一阶段的版本提交到git仓库</span><br><span class="line">git add .把所有修改过的操作下的文件全部都保存到暂存区域</span><br><span class="line">git commit -m &quot;第二次提交&quot; 将第二阶段的版本提交到git仓库</span><br><span class="line">git commit -a -m &quot;第三次提交&quot; //直接把当前工作目录存储到一个版本,在确认已经修改到最终提交版本的时候可以使用这个指令,不需要git add .,注意在使用这个命令的时候,需要是所有文件都处于被追踪状态,当有未追踪的文件的时候必须先git add.再进行后续的操作</span><br><span class="line">git log //显示我们一共进行了哪些操作</span><br><span class="line">git status //查看状态</span><br><span class="line">git branch dev //创建一个新的分支,但是当我们使用git status查看指针指向的时候发现依旧是指向master分支</span><br><span class="line">git checkout dev //切换分支,改变指针指向</span><br><span class="line">查看此时处于哪个分支上可以使用 git status / git branch指令</span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot;dev分支提交&quot;</span><br><span class="line">git checkout master //此时从dev分支切换到master分支上以后,在dev分支上建立的东西就消失了</span><br><span class="line">工作中使用分支,不要在主分支上修改代码</span><br><span class="line">git merge issus1 //当我们目前处于mster分支上的时候,使用前面的命令即可将我们修复完成的issus1版本融入到稳定版本master上面去</span><br><span class="line">主题思路:目前有一个稳定版本,我们新建一个lunbotu分支进行我们轮播图的编写,然后发现稳定版本有一个bug,此时我们需要在创建一个分支名为issus1,相当于将稳定版本拿过来进行修复bug,然后使用命令git mergr issus1,将修复完成的issus1分支于稳定版本master进行整合成最新的一个无bug的稳定版本,完事之后再使用命令git checkout lunbotu,回到我们轮播图的界面继续完成我们的后续操作;</span><br><span class="line">master主分支上开辟一个分支去做轮播图,此时发现主分支上有bug,我们回到主分支,再创建一个分支去解决bug,再回到主分支master,使用命令将解决完成的分支融入到稳定版本上,再回到轮播图的分支继续进行工作,最后回到msater主分支,将轮播图分支融入进来,只不过这个时候会出现相互融合办错的情况,我们按需处理一下就行了</span><br><span class="line">远程仓库的使用</span><br><span class="line">Github 码云 开源中国</span><br><span class="line">以本地仓库为基准</span><br><span class="line">以远程仓库为基准</span><br><span class="line">指令git remote用以查看本地仓库与远程仓库之间的联系</span><br><span class="line">git remote add origin http://当前远程仓库的URL地址 (表示将当前本地仓库与远程仓库建立一个联系,因为远程仓库名字太长了,我们给他取了一个小名origin)</span><br><span class="line">git remote -v 查看所有的远程仓库都列举出来</span><br><span class="line">有两个操作:</span><br><span class="line">1.fetch 从远程仓库进行拉取代码</span><br><span class="line">2.push 向远程仓库提交代码</span><br><span class="line">git push origin master (向小名为origin的仓库里面的默认分支master进行推送)</span><br><span class="line">git push -u origin master (表示最近一段时间我都是往这个origin里面去推送提交),下次我们再推送的时候直接使用 git push就可以了</span><br><span class="line">git branch -va 会列举出所有的分支</span><br><span class="line">以本地仓库为基准</span><br><span class="line">在远程创建空仓库</span><br><span class="line">添加远程连接 git remote add &lt;name&gt; url</span><br><span class="line">推送 git push &lt;name&gt; &lt;branch&gt;</span><br><span class="line">多人协作:</span><br><span class="line">拉取 git fetch&lt;name&gt;</span><br><span class="line">合并 git merge&lt;branch&gt;</span><br><span class="line">拉取并合并 git pull &lt;name&gt;&lt;branch&gt;</span><br><span class="line">推送 git push &lt;name&gt;&lt;branch&gt;</span><br><span class="line">拉取远程仓库内容:</span><br><span class="line">git clone http://....</span><br><span class="line">拉取最新版本的远程仓库,因为在协作开发中大家同时去拉取稳定版本的文件之后,有人已经向master去提交过自己需要完成的代码了,所以在这之后你去提交的时候会报错,原因就是当前你进行操作的版本与服务器的稳定版本不同步,所以此刻需要进行一步融合操作 指令 git fetch origion</span><br><span class="line">将本地的master与远程拉取下来的master进行merge最终合并 指令 git merge origin/master</span><br><span class="line">使用SSH密钥来解决每次拉取上传都要密码的问题,有教程,先不学</span><br><span class="line">git工作流</span><br><span class="line">集中式工作流:每个工作人员直接去操作远程仓库的master分支</span><br><span class="line">功能分支工作流</span><br><span class="line">Gitflow工作流</span><br><span class="line">Forking工作流</span><br><span class="line">---------------------------------------</span><br><span class="line">集中式工作流</span><br><span class="line">克隆中央仓库</span><br><span class="line">敲代码</span><br><span class="line">git pull --rebase</span><br><span class="line">解决冲突</span><br><span class="line">git add .</span><br><span class="line">git rebase --continue</span><br><span class="line">git push</span><br><span class="line">集中式工作流程各阶段步骤:</span><br><span class="line">cd Desktop/</span><br><span class="line">git clone http://...</span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot;修改了文件&quot;</span><br><span class="line">git fetch origin //为什么要执行这步关键的指令,因为在我们提交版本之前可能有人已经提交给远程仓库代码了,所以就会导致我们现在的代码与远程服务器端的代码不一致,导致报错,所以我们拉取一下代码验证一下看看是不是服务器端代码与我们自己这边代码不一致</span><br><span class="line">git merge origin/master //将我们的代码与服务器端的代码进行融合操作</span><br><span class="line">这一步会出现融合报错,因为在服务器端口拉取并且上传代码的时候会存在在一个html文件中有多个人进行了修改,所以在融合的时候就会报错问你是需要保留哪部分的代码</span><br><span class="line">解决完冲突之后</span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot;解决冲突&quot;</span><br><span class="line">git push</span><br><span class="line">//注意: 在我们merge解决冲突的时候,也会提交给远程服务器一个版本,这是merge属性一个不好的地方,解决的方法就是将 git rebase origin/master 这个命令代替 git merge origin/master ,完事之后如果没有冲突的话直接git push,这种解决办法就叫做变机,实现原理是将我们本地的master直接移到origin master后面,如果有冲突就解决冲突</span><br><span class="line">使用pull代替 fetch和merge这两步操作,其中git pull --rebase这个指令就代表了两步操作,分别是fetch和没有融合操作显示到提交情况列表的merge ,这个时候如果有融合解决就会显示出来,保留上方操作,解决完成融合报错问题之后,继续执行程序 先git add . 保存我们之间的融合操作,再 git rebase --continue ,最后再 git push</span><br><span class="line">注意: 先pull 再push,其中pull有两种方式,一种是merge , 一种是变机,(merge会多一个版本,因为它会保存一个融合的版本),(变机则不会,他直接将我们的版本提交到远程版本的下一个了,所以不会多一个新的版本), 我们git pull的时候可以加一个 --rebase 就是变机</span><br><span class="line">---------------------------------</span><br><span class="line">功能分支工作流</span><br><span class="line">新建分支开发</span><br><span class="line">开发完上传到远程仓库分支</span><br><span class="line">pull request</span><br><span class="line">接受或者修改</span><br><span class="line">功能分支工作流各阶段流程:</span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot;修改了&quot;</span><br><span class="line">git push //会报错,因为功能分支工作流的理念就是将服务器端的一个master进行保护,不允许开发者随意地去提交,需求通过验证才能够提交,所以我们需要去创建一个分支branch</span><br><span class="line">git branch lunbotu</span><br><span class="line">git checkout lunbotu</span><br><span class="line">git log //查看提交历史</span><br><span class="line">git push origin lunbotu //因为远程的master分支是受保护的,不能够直接去提交,所以我们可以先提交到远程的一个lunbotu分支</span><br><span class="line">在远程的轮播图里面有一个活跃分支，有提交合并请求的按钮,进去填写一下基本信息,当然了在所有人那边都是可以看到这个合并请求的</span><br><span class="line">------------------------------------</span><br><span class="line">gitflow</span><br><span class="line">master分支只存储写好的版本</span><br><span class="line">develop分支相当于以前的master</span><br><span class="line">功能分支</span><br><span class="line">replease分支</span><br><span class="line">-------------------------------</span><br><span class="line">Forking工作流</span><br><span class="line">fork别人仓库</span><br><span class="line">添加上游仓库的地址</span><br><span class="line">往自己的仓库传代码</span><br><span class="line">Pull request</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/lostmyself.github.io/tags/Git/" rel="tag"># Git</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/lostmyself.github.io/2019/08/13/4.js手写模板引擎/" rel="next" title="js手写模板引擎">
+                <i class="fa fa-chevron-left"></i> js手写模板引擎
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/lostmyself.github.io/2019/08/13/4.首页/" rel="prev" title="奇文分享">
+                奇文分享 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/lostmyself.github.io/images/3.jpg" alt="sxw">
+            
+              <p class="site-author-name" itemprop="name">sxw</p>
+              <p class="site-description motion-element" itemprop="description">从一而终</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/lostmyself.github.io/archives/">
+              
+                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/lostmyself.github.io/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/lostmyself.github.io/tags/index.html">
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/sxw19960127" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="1183476700@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">sxw</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">146.7k</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lostmyself.github.io/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lostmyself.github.io/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lostmyself.github.io/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lostmyself.github.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lostmyself.github.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lostmyself.github.io/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lostmyself.github.io/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/lostmyself.github.io/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/lostmyself.github.io/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/lostmyself.github.io/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/lostmyself.github.io/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/lostmyself.github.io/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/lostmyself.github.io/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/lostmyself.github.io/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+
+<script src="/lostmyself.github.io/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"/lostmyself.github.io/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":200,"height":350},"mobile":{"show":true},"log":false,"tagMode":false});</script></body>
+</html>
+
