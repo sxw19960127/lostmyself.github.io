@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="function doDecrypt (pwd, onError) { 	console.log(&apos;in doDecrypt&apos;); 	const txt = document.getElementById(&apos;enc_content&apos;).innerHTML; 	let plantext; 	try { 		const bytes = CryptoJS.AES.decrypt(txt, pwd);">
+<meta name="description" content="1234567891011121314151617181920212223242526272829VueX状态管理系统npm install vuex---------------------------------store.js中import Vue from &amp;quot;vue&amp;quot;import Vuex from &amp;quot;vuex&amp;quot;Vue.use(Vuex)export">
 <meta name="keywords" content="Vue全家桶">
 <meta property="og:type" content="article">
-<meta property="og:title" content="axios">
-<meta property="og:url" content="https://sxw19960127.github.io/lostmyself.github.io/2019/08/08/3.axios/index.html">
+<meta property="og:title" content="Vuex">
+<meta property="og:url" content="https://sxw19960127.github.io/lostmyself.github.io/2019/08/08/1.Vuex/index.html">
 <meta property="og:site_name" content="sxw个人博客">
-<meta property="og:description" content="function doDecrypt (pwd, onError) { 	console.log(&apos;in doDecrypt&apos;); 	const txt = document.getElementById(&apos;enc_content&apos;).innerHTML; 	let plantext; 	try { 		const bytes = CryptoJS.AES.decrypt(txt, pwd);">
+<meta property="og:description" content="1234567891011121314151617181920212223242526272829VueX状态管理系统npm install vuex---------------------------------store.js中import Vue from &amp;quot;vue&amp;quot;import Vuex from &amp;quot;vuex&amp;quot;Vue.use(Vuex)export">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-09T09:02:26.130Z">
+<meta property="og:updated_time" content="2019-08-17T04:29:53.107Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="axios">
-<meta name="twitter:description" content="function doDecrypt (pwd, onError) { 	console.log(&apos;in doDecrypt&apos;); 	const txt = document.getElementById(&apos;enc_content&apos;).innerHTML; 	let plantext; 	try { 		const bytes = CryptoJS.AES.decrypt(txt, pwd);">
+<meta name="twitter:title" content="Vuex">
+<meta name="twitter:description" content="1234567891011121314151617181920212223242526272829VueX状态管理系统npm install vuex---------------------------------store.js中import Vue from &amp;quot;vue&amp;quot;import Vuex from &amp;quot;vuex&amp;quot;Vue.use(Vuex)export">
 
 
 
@@ -120,14 +120,14 @@
 
 
 
-  <link rel="canonical" href="https://sxw19960127.github.io/lostmyself.github.io/2019/08/08/3.axios/">
+  <link rel="canonical" href="https://sxw19960127.github.io/lostmyself.github.io/2019/08/08/1.Vuex/">
 
 
 
 
 
 
-  <title>axios | sxw个人博客</title>
+  <title>Vuex | sxw个人博客</title>
   
 
 
@@ -265,7 +265,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://sxw19960127.github.io/lostmyself.github.io/lostmyself.github.io/2019/08/08/3.axios/">
+    <link itemprop="mainEntityOfPage" href="https://sxw19960127.github.io/lostmyself.github.io/lostmyself.github.io/2019/08/08/1.Vuex/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="sxw">
@@ -282,7 +282,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">axios</h1>
+          <h1 class="post-title" itemprop="name headline">Vuex</h1>
         
 
         <div class="post-meta">
@@ -294,7 +294,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-08T15:14:27+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-08T20:28:28+08:00">
                 2019-08-08
               </time>
             
@@ -353,7 +353,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  417
+                  585
                 </span>
               
 
@@ -390,46 +390,15 @@
       
 
       
-        <script src="/lostmyself.github.io/js/crypto-js.js"></script>
-<script>
-function doDecrypt (pwd, onError) {
-	console.log('in doDecrypt');
-	const txt = document.getElementById('enc_content').innerHTML;
-	let plantext;
-	try {
-		const bytes = CryptoJS.AES.decrypt(txt, pwd);
-		var plaintext = bytes.toString(CryptoJS.enc.Utf8);
-	} catch(err) {
-		if(onError) {
-			onError(err);
-		}
-		return;
-	}
-	document.getElementById('enc_content').innerHTML = plaintext;
-	document.getElementById('enc_content').style.display = 'block';
-	document.getElementById('enc_passwd').style.display = 'none';
-	if(typeof MathJax !== 'undefined') {
-		MathJax.Hub.Queue(
-			['resetEquationNumbers', MathJax.InputJax.TeX],
-			['PreProcess', MathJax.Hub],
-			['Reprocess', MathJax.Hub]
-		);
-	}
-}
-</script>
-<div id="enc_content" style="display:none">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</div>
-<div id="enc_passwd"> <input id="enc_pwd_input" type="password" style="border-radius: 5px;border-style: groove;height: 30px;width: 50%;cursor: auto;font-size: 102%;color: currentColor;outline: none;text-overflow: initial;padding-left: 5px;" onkeydown="if (event.keyCode == 13) { decrypt(); return false;}"> <input type="submit" value="解&nbsp;密" onclick="decrypt()" style="width: 58px;height: 34px;border-radius: 5px;background-color: white;border-style: solid;color: currentColor;"><div id="enc_error" style="display: inline-block;color: #d84527;margin-left: 10px"></div>
-<script>
-var onError = function(error) {
-	document.getElementById("enc_error").innerHTML = "password error!"
-};
-function decrypt() {
-var passwd = document.getElementById("enc_pwd_input").value;
-console.log(passwd);
-doDecrypt(passwd, onError);
-}
-</script>
-</div>
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">VueX状态管理系统</span><br><span class="line">npm install vuex</span><br><span class="line">---------------------------------</span><br><span class="line">store.js中</span><br><span class="line">import Vue from &quot;vue&quot;</span><br><span class="line">import Vuex from &quot;vuex&quot;</span><br><span class="line">Vue.use(Vuex)</span><br><span class="line">export default new Vuex.Store(&#123;</span><br><span class="line">   state: &#123;</span><br><span class="line">      count: 0</span><br><span class="line">   &#125;</span><br><span class="line">&#125;)</span><br><span class="line">--------------------------------</span><br><span class="line">main.js中:</span><br><span class="line">import store from &apos;./store.js&apos;</span><br><span class="line">new Vue(&#123;</span><br><span class="line">   store: store //注册一下</span><br><span class="line">&#125;)</span><br><span class="line">-------------------------------------------</span><br><span class="line">组件中获取数据:</span><br><span class="line">&lt;script&gt;</span><br><span class="line">   export default&#123;</span><br><span class="line">      computed: &#123;</span><br><span class="line">         count() &#123;</span><br><span class="line">            return this.$store.state.count</span><br><span class="line">         &#125;</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">getters属性:</span><br><span class="line">作用: 当我们在不同组件中操作相同数据(对数据的运算也一样时),我们可以把它提取出来;</span><br><span class="line">	 或者当我们处理从后台传过来的数据,也可以在getters里面进行操作;</span><br><span class="line">import Vue from &quot;vue&quot;</span><br><span class="line">import Vuex from &quot;vuex&quot;</span><br><span class="line">Vue.use(Vuex)</span><br><span class="line">export default new Vuex.Store(&#123;</span><br><span class="line">   state: &#123;</span><br><span class="line">      count: 0</span><br><span class="line">   &#125;,</span><br><span class="line">   getters: &#123; //作用和计算属性相似,只要检测到state发生变化,立即执行函数return出最新的数值</span><br><span class="line">      doubleCount(state) &#123;</span><br><span class="line">         return state.count * 2;</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;)</span><br><span class="line">在需要进行运算处理的函数中获取使用数值:</span><br><span class="line">return this.$store.getters.doubleCount; //写在计算属性里面的,主要state数值发生变化立即会进行更新</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">vuex是状态管理系统,要追踪数据,所以我们不允许在组件中进行数据的加减,只能如下进行数据的变动:</span><br><span class="line">import Vue from &quot;vue&quot;</span><br><span class="line">import Vuex from &quot;vuex&quot;</span><br><span class="line">Vue.use(Vuex)</span><br><span class="line">export default new Vuex.Store(&#123;</span><br><span class="line">   state: &#123;</span><br><span class="line">      count: 0</span><br><span class="line">   &#125;,</span><br><span class="line">   getters: &#123; </span><br><span class="line">      doubleCount(state) &#123;</span><br><span class="line">         return state.count * 2;</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;,</span><br><span class="line">   mutations: &#123; //只允许将数据的变动函数写在这个里面,不允许有异步操作</span><br><span class="line">      increaseCount(state) &#123;</span><br><span class="line">         state.count ++;</span><br><span class="line">      &#125;,</span><br><span class="line">      decreaseCount(state) &#123;</span><br><span class="line">         state.count --;</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;)</span><br><span class="line">-------------------------------------------------------</span><br><span class="line">在组件中怎么去调用这个定义好的函数呢？</span><br><span class="line">// 逻辑处理部分 this.$store.commit(&quot;increaseCount&quot;)</span><br><span class="line">-------------------------------------------</span><br><span class="line">export default new Vuex.Store(&#123;</span><br><span class="line">   state: &#123;</span><br><span class="line">      count: 0</span><br><span class="line">   &#125;,</span><br><span class="line">   getters: &#123; </span><br><span class="line">      doubleCount(state) &#123;</span><br><span class="line">         return state.count * 2;</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;,</span><br><span class="line">   mutations: &#123; </span><br><span class="line">      increaseCount(state) &#123;</span><br><span class="line">         state.count ++;</span><br><span class="line">      &#125;,</span><br><span class="line">      decreaseCount(state) &#123;</span><br><span class="line">         state.count --;</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;,</span><br><span class="line">   actions: &#123; //这里可以写异步操作</span><br><span class="line">      actionsIncrease(context) &#123;</span><br><span class="line">         console.log(context)</span><br><span class="line">         setTimeout(() =&gt; &#123;</span><br><span class="line">            context.commit(&quot;increaseCount&quot;, 5)</span><br><span class="line">         &#125;, 1000)</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;)</span><br><span class="line">------------------------------------------------</span><br><span class="line">调用: this.$store.dispatch(&quot;actionsIncrease&quot;)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">辅助函数: 简化我们获取数据等操作:</span><br><span class="line">&lt;script&gt;</span><br><span class="line">   import &#123;mapState,mapGetters&#125; from &quot;vuex&quot;</span><br><span class="line">   export default &#123;</span><br><span class="line">      computed: &#123;</span><br><span class="line">         ...mapState([&quot;count&quot;,&quot;value&quot;]), //获取state中的count值和value值</span><br><span class="line">         ...mapGetters([&quot;doubleCount&quot;]),</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">...</span><br><span class="line">&lt;script&gt;</span><br><span class="line">   import &#123;mapMutations,mapActions&#125; from &quot;vuex&quot;</span><br><span class="line">   export default &#123;</span><br><span class="line">      methods: &#123;</span><br><span class="line">         ...mapActions([&quot;actionsIncrease&quot;]),</span><br><span class="line">         ...mapMutations([&quot;decreaseCount&quot;])</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+
       
     </div>
     
@@ -459,8 +428,8 @@ doDecrypt(passwd, onError);
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/lostmyself.github.io/2019/08/05/1.CSS3/" rel="next" title="CSS3">
-                <i class="fa fa-chevron-left"></i> CSS3
+              <a href="/lostmyself.github.io/2019/08/08/1.Vue-Router/" rel="next" title="Vue-Router">
+                <i class="fa fa-chevron-left"></i> Vue-Router
               </a>
             
           </div>
@@ -469,8 +438,8 @@ doDecrypt(passwd, onError);
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/lostmyself.github.io/2019/08/08/3.Vue-Router/" rel="prev" title="Vue-Router">
-                Vue-Router <i class="fa fa-chevron-right"></i>
+              <a href="/lostmyself.github.io/2019/08/09/1.Vue-Resource/" rel="prev" title="Vue-Resource">
+                Vue-Resource <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -630,7 +599,7 @@ doDecrypt(passwd, onError);
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">127k</span>
+    <span title="Site words total count">156k</span>
   
 </div>
 

@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lostmyself.github.io/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lostmyself.github.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/lostmyself.github.io/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/lostmyself.github.io/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/lostmyself.github.io/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/lostmyself.github.io/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/lostmyself.github.io/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="React,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="React基础 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556前端三大主流框架都将趋于webcomponents这个标准;JSX,JavaScript + XML(在javascript里面写html);React主要学习内容:	1.JSX">
+<meta name="keywords" content="React">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React基础">
+<meta property="og:url" content="https://sxw19960127.github.io/lostmyself.github.io/2019/08/13/1.React基础/index.html">
+<meta property="og:site_name" content="sxw个人博客">
+<meta property="og:description" content="React基础 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556前端三大主流框架都将趋于webcomponents这个标准;JSX,JavaScript + XML(在javascript里面写html);React主要学习内容:	1.JSX">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-08-17T04:29:22.181Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="React基础">
+<meta name="twitter:description" content="React基础 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556前端三大主流框架都将趋于webcomponents这个标准;JSX,JavaScript + XML(在javascript里面写html);React主要学习内容:	1.JSX">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/lostmyself.github.io/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://sxw19960127.github.io/lostmyself.github.io/2019/08/13/1.React基础/">
+
+
+
+
+
+
+  <title>React基础 | sxw个人博客</title>
+  
+
+
+
+
+
+
+
+
+  
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/lostmyself.github.io/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">sxw个人博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">现在失去的将来会以另一种形式回馈自己</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/lostmyself.github.io/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/lostmyself.github.io/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/lostmyself.github.io/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/lostmyself.github.io/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/lostmyself.github.io/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://sxw19960127.github.io/lostmyself.github.io/lostmyself.github.io/2019/08/13/1.React基础/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="sxw">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/lostmyself.github.io/images/3.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="sxw个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">React基础</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-13T00:01:04+08:00">
+                2019-08-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/lostmyself.github.io/categories/Web前端开发/" itemprop="url" rel="index">
+                    <span itemprop="name">Web前端开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  7.6k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  37
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>React基础</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">前端三大主流框架都将趋于webcomponents这个标准;</span><br><span class="line">JSX,JavaScript + XML(在javascript里面写html);</span><br><span class="line">React主要学习内容:</span><br><span class="line">	1.JSX语法的编译和渲染;</span><br><span class="line">	2.组件化;</span><br><span class="line">	3.虚拟dom;</span><br><span class="line">环境的搭建:</span><br><span class="line">1.文件的命名</span><br><span class="line">	public文件夹用以存放静态资源,编译完成了的资源; public&gt;scripts&gt;app.js</span><br><span class="line">	src文件夹用以存放未编译之前的代码; src&gt;.babelrc&gt;app.js</span><br><span class="line">2.开本地服务器</span><br><span class="line">	a)下载node.js;</span><br><span class="line">	b)在vscode里面打开命令行,输入node -v用以查看node.js的版本以及是否成功安装node.js;</span><br><span class="line">	c)指令npm -v; (npm:包管理器,用来下载别人写好的项目。譬如下载用以开本地服务器的live-server类库等)</span><br><span class="line">	d)npm官网 https://www.npmjs.com;</span><br><span class="line">	e)搜索live-server,npm install -g live-server //全局安装;</span><br><span class="line">	f)指令live-server -v;</span><br><span class="line">	g)使用live-server在public文件夹下开本地服务器 live-server public/;</span><br><span class="line">	h)若出现端口被占用的情况,可以换一个端口 live-server --port=4000;</span><br><span class="line">	i)使用babel工具将javascript XML转换为js语法,将es6语法转换为es5语法,实现优雅降级;</span><br><span class="line">	j)babel官网里面有一个try it out网页版本的代码田供我们试验代码;</span><br><span class="line">	k)npm init 创建项目说明书,此时会生成一个package.json文件;</span><br><span class="line">	l)在package.json文件里面给项目说明书添加两个字段:</span><br><span class="line">		&quot;dependencies&quot;: &#123;&#125;, //运行时候的依赖,此时运行依赖是react,已经通过标签引用了</span><br><span class="line">		&quot;devDependencies&quot;: &#123;&#125; //开发时候的依赖</span><br><span class="line">		//这两个字段可以安装当前项目的依赖,我们安装babel需要在这里写上以方便他人看到</span><br><span class="line">	m)安装babel,指令 npm install @babel/core @babel/cli @babel/preset-env @babel/preset-react --save-dev</span><br><span class="line">		@babel/core //babel核心</span><br><span class="line">		@babel/cli //使用babel的话要用cli这个工具去调用</span><br><span class="line">		@babel/preset-env //将ES6,7等语法转换为ES5语法</span><br><span class="line">	n)在package.json里将脚本内容&quot;test&quot;:&quot;...&quot;改成&quot;babel&quot;:&quot;babel&quot;;</span><br><span class="line">	o)创建src文件夹,因为在public文件夹里面的文件都是已经编译好的;</span><br><span class="line">	p)在src文件下面创建配置文件,因为前面我们只是下载了babel并没有使用,所以创建.babelrc文件,内容如下:</span><br><span class="line">		&#123;</span><br><span class="line">			&quot;presets&quot;: [&quot;@babel/preset-env&quot;,&quot;@babel/preset-react&quot;]</span><br><span class="line">		&#125;</span><br><span class="line">	q)实时编译文件 npm run babel -- src/app.js -o public/scripts/app.js -w</span><br><span class="line">3.VSCode</span><br><span class="line">node_modules文件夹是在安装babel时候自动生成的;</span><br><span class="line">js:</span><br><span class="line">	console.log(React);</span><br><span class="line">	console.log(ReactDOM);</span><br><span class="line">	</span><br><span class="line">	const template = &lt;p&gt;我是一个p标签&lt;/p&gt;;</span><br><span class="line">	var template = React.createElement(&quot;p&quot;, null, &quot;我是一个p标签&quot;);</span><br><span class="line">	</span><br><span class="line">	const template = &lt;div id=&quot;only&quot;&gt;&lt;p&gt;this is a p&lt;/p&gt;this is a div&lt;/div&gt;</span><br><span class="line">	var template = React.createElement(&quot;div&quot;, &#123;id: &quot;only&quot;&#125;, [React.createElement(&quot;p&quot;, null,&quot;this is a p&quot;), &quot;this is a div&quot;]);</span><br><span class="line">	</span><br><span class="line">	const root = document.getElementById(&quot;app&quot;); //获取html里面需要插入内容的dom节点</span><br><span class="line">	ReactDOM.render(template,root); //将template模板插入到root位置里去</span><br><span class="line">	</span><br><span class="line">&lt;script crossorigin src=&quot;https://unpkg.com/react@16/umd/react.development.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script crossorigin src=&quot;https://unpkg.com/react-dom@16/umd/react-dom.development.js&quot;&gt;&lt;/script&gt; </span><br><span class="line">(使用React需要加载这两个资源,上面一个是包含了React的JSX语法,组件化,虚拟dom等);</span><br><span class="line">(下一个是将代码渲染到浏览器所需要的相关内容,因为React不光光能够构建网页,还可以加载对应的文件去开发app等);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><span class="line">jsx语法里template模板中必须要有一个根节点去包裹所有内容;</span><br><span class="line">jsx中,&#123;&#125; 大括号里面可以写js表达式;</span><br><span class="line">const template = ( //将jsx语法放到()里面,提高可读性</span><br><span class="line">   &lt;div&gt;</span><br><span class="line">      &lt;h1&gt;这是APP&lt;/h1&gt;</span><br><span class="line">      &lt;p&gt;我是副标题&lt;/p&gt;</span><br><span class="line">      &lt;ol&gt;</span><br><span class="line">         &lt;li&gt;物品1&lt;/li&gt;</span><br><span class="line">         &lt;li&gt;物品2&lt;/li&gt;</span><br><span class="line">      &lt;/ol&gt;</span><br><span class="line">   &lt;/div&gt;</span><br><span class="line">)</span><br><span class="line">-------------------------------------------------</span><br><span class="line">let user = &quot;舒小伟&quot;</span><br><span class="line">let userAge = 20;</span><br><span class="line">let userLocation = &quot;兰溪&quot;</span><br><span class="line">const tempalte = (</span><br><span class="line">   &lt;div&gt;</span><br><span class="line">      &lt;h1&gt;&#123;user&#125;&lt;/h1&gt;</span><br><span class="line">      &lt;p&gt;age: &#123;userAge + 1&#125;&lt;/p&gt;</span><br><span class="line">      &lt;p&gt;location: &#123;userLocation&#125;&lt;/p&gt;</span><br><span class="line">   &lt;/div&gt;</span><br><span class="line">)</span><br><span class="line">------------------------------------------------</span><br><span class="line">const user = &#123;</span><br><span class="line">   name: &quot;流川枫&quot;,</span><br><span class="line">   age: &quot;19&quot;,</span><br><span class="line">   location: &quot;兰溪&quot;</span><br><span class="line">&#125;</span><br><span class="line">const tempalte = (</span><br><span class="line">   &lt;div&gt;</span><br><span class="line">      &lt;h1&gt;&#123;user.name&#125;&lt;/h1&gt;</span><br><span class="line">      &lt;p&gt;age: &#123;user.age&#125;&lt;/p&gt;</span><br><span class="line">      &lt;p&gt;location: &#123;user.location&#125;&lt;/p&gt;</span><br><span class="line">   &lt;/div&gt;</span><br><span class="line">)</span><br><span class="line">------------------------------------------------</span><br><span class="line">数据绑定之条件渲染的三种方式:</span><br><span class="line">	1.函数; if语句</span><br><span class="line">	2.三目运算符;</span><br><span class="line">	3.逻辑运算符;</span><br><span class="line"></span><br><span class="line">const obj = &#123;</span><br><span class="line">   title: &quot;APP&quot;,</span><br><span class="line">   subtitle: &quot;这是一个副标题&quot;,</span><br><span class="line">   options: [&quot;option1&quot;,&quot;option2&quot;]</span><br><span class="line">&#125;</span><br><span class="line">const showOptions = (options) =&gt; &#123;</span><br><span class="line">   if(options &amp;&amp; options.length &gt; 0) &#123; //在函数里面使用逻辑运算符 &amp;&amp; 去判断</span><br><span class="line">      return &quot;这些是options&quot;;</span><br><span class="line">   &#125;else &#123;</span><br><span class="line">      return &quot;没有options&quot;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line">const template = (</span><br><span class="line">   &lt;div&gt;</span><br><span class="line">      &lt;h1&gt;&#123;obj.title&#125;&lt;/h1&gt;</span><br><span class="line">      &lt;p&gt;&#123;obj.subtitle&#125;&lt;/p&gt;</span><br><span class="line">      //三目运算符去判断</span><br><span class="line">      &#123;&lt;p&gt;&#123;(obj.options &amp;&amp; obj.options.length &gt; 0) ? &quot;这些是options&quot; : &quot;没有options&quot;&#125;&lt;/p&gt;&#125;</span><br><span class="line">      &lt;p&gt;&#123;showOptions(obj.options)&#125;&lt;/p&gt;</span><br><span class="line">      &lt;ol&gt;</span><br><span class="line">         &lt;li&gt;物品1&lt;/li&gt;</span><br><span class="line">         &lt;li&gt;物品2&lt;/li&gt;</span><br><span class="line">      &lt;/ol&gt;</span><br><span class="line">   &lt;/div&gt;</span><br><span class="line">)</span><br><span class="line">-------------------------------------------------</span><br><span class="line">const user = &#123;</span><br><span class="line">   name: &quot;流川枫&quot;,</span><br><span class="line">   age: &quot;19&quot;,</span><br><span class="line">   location: &quot;东北&quot;</span><br><span class="line">&#125;</span><br><span class="line">const showLocation = (location) =&gt; &#123;</span><br><span class="line">   if(location) &#123;</span><br><span class="line">      return &lt;p&gt;location: &#123;location&#125;&lt;/p&gt;</span><br><span class="line">   &#125;else &#123;</span><br><span class="line">      return &quot;不知道&quot;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line">const tempalte = (</span><br><span class="line">   &lt;div&gt;</span><br><span class="line">      &lt;h1&gt;&#123;user.name ? user.name : &quot;匿名&quot;&#125;&lt;/h1&gt;</span><br><span class="line">      &#123; &lt;p&gt;age: &#123;user.age&#125;&lt;/p&gt; &#125;</span><br><span class="line">      &#123; (user.age &amp;&amp; user.age &gt;= 18) &amp;&amp; &lt;p&gt;&#123;user.age&#125;&lt;/p&gt;&#125; </span><br><span class="line">      &#123;/*当&amp;&amp;前面是true的时候显示&amp;&amp;后面的内容,否则显示false*/&#125;</span><br><span class="line">      &#123;/* &#123;&lt;span&gt;123123&lt;/span&gt;&#125; */&#125;</span><br><span class="line">      &#123;/* &lt;p&gt;location: &#123;showLocation(user.location)&#125;&lt;/p&gt; */&#125;</span><br><span class="line">      &#123; showLocation(user.location) &#125;</span><br><span class="line">      &#123;/* &#123; false &#125; 不会渲染出来 */&#125;</span><br><span class="line">      &#123;/* &#123; true &#125; 不会渲染出来 */&#125;</span><br><span class="line">      &#123;/* &#123; undefined &#125; 不会渲染出来 */&#125;</span><br><span class="line">   &lt;/div&gt;</span><br><span class="line">)</span><br><span class="line">const root = document.getElementById(&quot;app&quot;);</span><br><span class="line">ReactDOM.render(templatefive,root);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">绑定属性和事件:</span><br><span class="line">let count = 0;</span><br><span class="line">let myId = &quot;only&quot;</span><br><span class="line">const addOne = () =&gt; &#123;</span><br><span class="line">   count = count + 1;</span><br><span class="line">   renderCountApp(); //当数据发生变化想要在页面上展示出来,需要调用ReactDOM.render方法</span><br><span class="line">   console.log(&quot;加1&quot;);</span><br><span class="line">&#125;</span><br><span class="line">const minusOne = () =&gt; &#123;</span><br><span class="line">   count = count - 1;</span><br><span class="line">   renderCountApp();</span><br><span class="line">   console.log(&quot;减1&quot;);</span><br><span class="line">&#125;</span><br><span class="line">const reset = () =&gt; &#123;</span><br><span class="line">   count = 0;</span><br><span class="line">   renderCountApp();</span><br><span class="line">   console.log(&quot;重置&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//将页面渲染的结构代码封装成一个函数,当每次数据变化的时候执行一次这个函数进行页面的重新渲染;</span><br><span class="line">const renderCountApp = () =&gt; &#123;</span><br><span class="line">   const templatesix = ( </span><br><span class="line">   //这里给我们的直观感受是templatesix里所有的div和h1标签随着数据发生变化调用了renderCountApp都会被重新渲染,但实际是哪一个标签发生变化,仅仅重新渲染当前变化了的dom元素,这就是虚拟dom的魅力					//React.createElement会以对象的形式展示我们的节点,以对象代表dom。当数据发生变化的时候React自动又会生成一个对象,然后与老对象进行对比算法,并且仅更新替代那一个不一样的对象,进行dom的重排重绘,保留一样的对象;</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">         &lt;h1&gt;&#123;count&#125;&lt;/h1&gt;</span><br><span class="line">         &lt;button id=&#123;myId&#125; className=&quot;button&quot; onClick=&#123;addOne&#125;&gt;+1&lt;/button&gt;</span><br><span class="line">         &lt;button onClick=&#123;minusOne&#125;&gt;-1&lt;/button&gt;</span><br><span class="line">         &lt;button onClick=&#123;reset&#125;&gt;重置&lt;/button&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">   )</span><br><span class="line">   const root = document.getElementById(&quot;app&quot;);</span><br><span class="line">   ReactDOM.render(templatesix,root);</span><br><span class="line">&#125;</span><br><span class="line">renderCountApp();</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line">input框和列表渲染</span><br><span class="line">------------------------------------------</span><br><span class="line">//管理数据</span><br><span class="line">const obj = &#123;</span><br><span class="line">   title: &quot;帮你决定&quot;,</span><br><span class="line">   subtitle: &quot;把你的命运交给电脑吧&quot;,</span><br><span class="line">   options: []</span><br><span class="line">&#125;</span><br><span class="line">//showOptions方法 用以显示options数组中有没有元素</span><br><span class="line">const showOptions = (options) =&gt; &#123;</span><br><span class="line">   if(options &amp;&amp; options.length &gt; 0) &#123;</span><br><span class="line">      return &quot;这些是options&quot;;</span><br><span class="line">   &#125;else &#123;</span><br><span class="line">      return &quot;没有options&quot;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line">//表单处理</span><br><span class="line">const formSubmit = (e) =&gt; &#123;</span><br><span class="line">   e.preventDefault(); //阻止form表单的默认提交行为</span><br><span class="line">   console.log(e.target); //e.target就是form表单dom节点</span><br><span class="line">   console.log(e.target.elements.option); //.elements会以对象的形式返回form中存在的元素</span><br><span class="line">   let option = e.target.elements.option.value;</span><br><span class="line">   if(option) &#123;</span><br><span class="line">      obj.options.push(option); //推值进数组</span><br><span class="line">      e.target.elements.option.value = &quot;&quot;; //置空input框</span><br><span class="line">      // console.log(obj.options);</span><br><span class="line">      render();</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line">//删除所有的功能 数组置空</span><br><span class="line">const removeAll = () =&gt; &#123;</span><br><span class="line">   obj.options = [];</span><br><span class="line">   render();</span><br><span class="line">&#125;</span><br><span class="line">// a.数据倒置</span><br><span class="line">// const numbers = [10,20,30];</span><br><span class="line">// const reverseNumber = () =&gt; &#123;</span><br><span class="line">//    numbers.reverse();</span><br><span class="line">//    render();</span><br><span class="line">// &#125;</span><br><span class="line">//随机决定</span><br><span class="line">const makeDecision = () =&gt; &#123;</span><br><span class="line">   // [0,1)</span><br><span class="line">   let index = Math.floor(Math.random() * obj.options.length);</span><br><span class="line">   console.log(index);</span><br><span class="line">   const option = obj.options[index];</span><br><span class="line">   alert(option);</span><br><span class="line">&#125;</span><br><span class="line">//整体结构</span><br><span class="line">const render = () =&gt; &#123;</span><br><span class="line">   const template = (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">         &lt;h1&gt;&#123;obj.title&#125;&lt;/h1&gt;</span><br><span class="line">         &lt;p&gt;&#123;obj.subtitle&#125;&lt;/p&gt;</span><br><span class="line">         &lt;p&gt;&#123;showOptions(obj.options)&#125;&lt;/p&gt;</span><br><span class="line">         &lt;p&gt;&#123;obj.options.length&#125;&lt;/p&gt;</span><br><span class="line">         &lt;button disabled=&#123;obj.options.length == 0&#125; onClick=&#123;makeDecision&#125;&gt;随机选择一项&lt;/button&gt; //disabled=true时候,button按钮就不能进行点击操作,失去焦点</span><br><span class="line">         &lt;button onClick=&#123;removeAll&#125;&gt;删除所有&lt;/button&gt;</span><br><span class="line">         &#123;/* b.关于key值 */&#125;</span><br><span class="line">         &#123;/* &#123;</span><br><span class="line">            numbers.map(number =&gt; &#123;</span><br><span class="line">               return &lt;p key=&#123;number&#125;&gt;&#123;number&#125;: &lt;input type=&quot;text&quot;/&gt;&lt;/p&gt;</span><br><span class="line">            &#125;)</span><br><span class="line">         &#125;</span><br><span class="line">         &lt;button onClick=&#123;reverseNumber&#125;&gt;reverse&lt;/button&gt; */&#125;</span><br><span class="line">         &lt;ol&gt;</span><br><span class="line">            &#123;</span><br><span class="line">               obj.options.map((option,index) =&gt; &#123; //map会将数组中的每一项进行改变并且返回一个新数组</span><br><span class="line">                  return &lt;li key=&#123;`option_$&#123;index&#125;`&#125;&gt;&#123;option&#125;&lt;/li&gt;</span><br><span class="line">               &#125;)</span><br><span class="line">            &#125;</span><br><span class="line">         &lt;/ol&gt;</span><br><span class="line">         &lt;form onSubmit = &#123;formSubmit&#125;&gt;</span><br><span class="line">            &lt;input type=&quot;text&quot; name=&quot;option&quot;/&gt;</span><br><span class="line">            &lt;button&gt;添加选项&lt;/button&gt;</span><br><span class="line">         &lt;/form&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">   )</span><br><span class="line">   const root = document.getElementById(&quot;app&quot;);</span><br><span class="line">   ReactDOM.render(template,root);</span><br><span class="line">&#125;</span><br><span class="line">render();</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line">组件化:</span><br><span class="line">//定义一个类也就是组件的名字MyApp;</span><br><span class="line">//通过extends继承React.Component,成为一个组件;</span><br><span class="line">//render()函数里面写需要渲染出来的组件模板;</span><br><span class="line">-------------------------------------------------------------------------</span><br><span class="line">//总-组件模板</span><br><span class="line">class MyApp extends React.Component&#123;</span><br><span class="line">   render() &#123; //通过render函数告诉我们在调用这个组件时应该被渲染出什么结构</span><br><span class="line">      return(</span><br><span class="line">         &lt;div&gt;</span><br><span class="line">            &lt;Header /&gt;</span><br><span class="line">            &lt;Action /&gt;</span><br><span class="line">            &lt;Options /&gt;</span><br><span class="line">            &lt;AddOption /&gt;</span><br><span class="line">         &lt;/div&gt;</span><br><span class="line">      )</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line">//Header组件</span><br><span class="line">class Header extends React.Component&#123;</span><br><span class="line">   render() &#123;</span><br><span class="line">      return(</span><br><span class="line">         &lt;div&gt;</span><br><span class="line">            &lt;h1&gt;帮你做决定&lt;/h1&gt;</span><br><span class="line">            &lt;p&gt;把你的命运交给电脑吧&lt;/p&gt;</span><br><span class="line">         &lt;/div&gt;</span><br><span class="line">      )</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line">//Action组件</span><br><span class="line">class Action extends React.Component&#123;</span><br><span class="line">   render() &#123;</span><br><span class="line">      return(</span><br><span class="line">         &lt;div&gt;</span><br><span class="line">            &lt;button&gt;随机输出一个选项&lt;/button&gt;</span><br><span class="line">         &lt;/div&gt;</span><br><span class="line">      )</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line">//Options组件</span><br><span class="line">class Options extends React.Component&#123;</span><br><span class="line">   render() &#123;</span><br><span class="line">      return(</span><br><span class="line">         &lt;div&gt;</span><br><span class="line">            我是options组件</span><br><span class="line">            &lt;Option /&gt;</span><br><span class="line">            &lt;Option /&gt;</span><br><span class="line">            &lt;Option /&gt;</span><br><span class="line">         &lt;/div&gt;</span><br><span class="line">      )</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line">//被Options组件引用的Option组件</span><br><span class="line">class Option extends React.Component&#123;</span><br><span class="line">   render() &#123;</span><br><span class="line">      return(</span><br><span class="line">         &lt;div&gt;</span><br><span class="line">            我是li</span><br><span class="line">         &lt;/div&gt;</span><br><span class="line">      )</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line">//AddOption组件</span><br><span class="line">class AddOption extends React.Component&#123;</span><br><span class="line">   render() &#123;</span><br><span class="line">      return(</span><br><span class="line">         &lt;div&gt;</span><br><span class="line">            我是AddOption组件</span><br><span class="line">         &lt;/div&gt;</span><br><span class="line">      )</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line">----------------------------------------------------------</span><br><span class="line">可以通过jsx将上述模板进行整合,并且使用ReactDOM.render渲染</span><br><span class="line">//jsx模板</span><br><span class="line">const jsx = (</span><br><span class="line">   &lt;div&gt;</span><br><span class="line">      &#123;/* 自定义标签的形式,它会去上面组件找对应的模板进行渲染 */&#125;</span><br><span class="line">      &lt;Header /&gt;</span><br><span class="line">      &lt;Action /&gt;</span><br><span class="line">      &lt;Options /&gt;</span><br><span class="line">      &lt;AddOption /&gt;</span><br><span class="line">   &lt;/div&gt;</span><br><span class="line">)</span><br><span class="line">------------------------------------------------------------</span><br><span class="line">也可以将所有的组件组装进一个大的组件中,进行渲染;</span><br><span class="line">ReactDOM.render(&lt;MyApp /&gt;,document.getElementById(&quot;app&quot;));</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br></pre></td><td class="code"><pre><span class="line">组件传值</span><br><span class="line">class MyApp extends React.Component&#123;</span><br><span class="line">   render() &#123; </span><br><span class="line">      const title = &quot;帮你决定&quot;;</span><br><span class="line">      const subTitle = &quot;把你的命运交给电脑吧&quot;;</span><br><span class="line">      const options = [&quot;张三&quot;,&quot;李四&quot;,&quot;王五&quot;]</span><br><span class="line">      return(</span><br><span class="line">         &lt;div&gt;</span><br><span class="line">            &lt;Header title=&#123;title&#125; subTitle=&#123;subTitle&#125; /&gt; //自定义属性的形式进行传值</span><br><span class="line">            &lt;Action /&gt;</span><br><span class="line">            &lt;Options options=&#123;options&#125; /&gt;</span><br><span class="line">            &lt;AddOption /&gt;</span><br><span class="line">         &lt;/div&gt;</span><br><span class="line">      )</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line">class Header extends React.Component&#123;</span><br><span class="line">   render() &#123;</span><br><span class="line">      console.log(this.props.title); //this.props可以获取当前对象上的所有属性</span><br><span class="line">      return(</span><br><span class="line">         &lt;div&gt;</span><br><span class="line">            &lt;h1&gt;&#123;this.props.title&#125;&lt;/h1&gt;</span><br><span class="line">            &lt;p&gt;&#123;this.props.subTitle&#125;&lt;/p&gt;</span><br><span class="line">         &lt;/div&gt;</span><br><span class="line">      )</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line">class Action extends React.Component&#123;</span><br><span class="line">   handlePick() &#123; //组件化定义事件是在当前组件里进行定义的</span><br><span class="line">      alert(&quot;输出了&quot;);</span><br><span class="line">   &#125;</span><br><span class="line">   render() &#123;</span><br><span class="line">      return(</span><br><span class="line">         &lt;div&gt;</span><br><span class="line">            &lt;button onClick=&#123;this.handlePick&#125;&gt;随机输出一个选项&lt;/button&gt;</span><br><span class="line">         &lt;/div&gt;</span><br><span class="line">      )</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line">// 常见的this指向丢失问题</span><br><span class="line">// const obj = &#123;</span><br><span class="line">//    id: 1,</span><br><span class="line">//    fn() &#123;</span><br><span class="line">//       console.log(this.id);</span><br><span class="line">//    &#125;</span><br><span class="line">// &#125;</span><br><span class="line">// const fn1 = obj.fn; 将函数的引用拿出来</span><br><span class="line">// fn1(); fn1函数自执行,会存在this指向丢失 undefined </span><br><span class="line">class Options extends React.Component&#123;</span><br><span class="line">   constructor(props) &#123; //constructor解决this指向问题,记下来！</span><br><span class="line">      super(props);</span><br><span class="line">      this.handleRemoveAll = this.handleRemoveAll.bind(this); </span><br><span class="line">      //constructor初始化操作,从源头进行this指向的改变,就不用像后面这样烦躁了;</span><br><span class="line">   &#125;</span><br><span class="line">   handleRemoveAll() &#123;</span><br><span class="line">      // alert(&quot;删除所有&quot;);</span><br><span class="line">      console.log(this.props.options); //报错,this指向丢失</span><br><span class="line">      console.log(this); //undefined,获取不到当前组件中props相关属性</span><br><span class="line">   &#125;</span><br><span class="line">   render() &#123;</span><br><span class="line">      console.log(this.props);</span><br><span class="line">      return(</span><br><span class="line">         &lt;div&gt;</span><br><span class="line">            &lt;button onClick=&#123;this.handleRemoveAll&#125;&gt;删除所有&lt;/button&gt;</span><br><span class="line">            &#123;/* &#123;this.props.options.length&#125;</span><br><span class="line">            &lt;Option /&gt;</span><br><span class="line">            &lt;Option /&gt;</span><br><span class="line">            &lt;Option /&gt;</span><br><span class="line">            &lt;Option /&gt; */&#125;</span><br><span class="line">            &#123;/* &#123;</span><br><span class="line">               this.props.options.map((option,index) =&gt; &#123;</span><br><span class="line">                  return &lt;p key=&#123;`option_$&#123;index&#125;`&#125;&gt;&#123;option&#125;&lt;/p&gt;</span><br><span class="line">               &#125;)</span><br><span class="line">            &#125; */&#125;</span><br><span class="line">            &#123; //渲染数组每一项的值为option组件,并且把每一项的值传到对应项的组件里</span><br><span class="line">               this.props.options.map((option,index) =&gt; &#123;</span><br><span class="line">                  return &lt;option option=&#123;option&#125; key=&#123;`option_$&#123;index&#125;`&#125;&gt;&#123;option&#125;&lt;/option&gt;</span><br><span class="line">               &#125;)</span><br><span class="line">            &#125;</span><br><span class="line">         &lt;/div&gt;</span><br><span class="line">      )</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line">class Option extends React.Component&#123;</span><br><span class="line">   render() &#123;</span><br><span class="line">      console.log(this.props);</span><br><span class="line">      return(</span><br><span class="line">         &lt;div&gt;</span><br><span class="line">            &#123;this.props.option&#125;</span><br><span class="line">         &lt;/div&gt;</span><br><span class="line">      )</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line">class AddOption extends React.Component&#123;</span><br><span class="line">   handleFormSubmit(e) &#123;</span><br><span class="line">      e.preventDefault();</span><br><span class="line">      // alert(&quot;submit&quot;);</span><br><span class="line">      const option = e.target.elements.option.value.trim(); </span><br><span class="line">      //.trim()方法用以取消当我们在input框中输入很多空格的时候,alert出来会自动取消空格</span><br><span class="line">      if(option) &#123;</span><br><span class="line">         alert(option);</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   render() &#123;</span><br><span class="line">      return(</span><br><span class="line">         &lt;div&gt;</span><br><span class="line">            &lt;form onSubmit=&#123;this.handleFormSubmit&#125;&gt;</span><br><span class="line">               &lt;input type=&quot;text&quot; name=&quot;option&quot;/&gt;</span><br><span class="line">               &lt;button&gt;添加选项&lt;/button&gt;</span><br><span class="line">            &lt;/form&gt;</span><br><span class="line">         &lt;/div&gt;</span><br><span class="line">      )</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line">ReactDOM.render(&lt;MyApp /&gt;,document.getElementById(&quot;app&quot;));</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">在组件中通过state属性重新渲染页面	this.setState();</span><br><span class="line">步骤:</span><br><span class="line">	1.应用写成组件;</span><br><span class="line">	2.组件定义属性; state = &#123;count: 0&#125;</span><br><span class="line">	3.stata count 渲染页面中 state.count</span><br><span class="line">	4.触发事件 数据发生改变 state count 变一变</span><br><span class="line">	5.会把页面重新渲染;</span><br><span class="line">---------------------------------------------------------------</span><br><span class="line">class Counter extends React.Component&#123;</span><br><span class="line">   constructor(props) &#123;</span><br><span class="line">      super(props);</span><br><span class="line">      this.handleAddOne = this.handleAddOne.bind(this);</span><br><span class="line">      this.handleMinusOne = this.handleMinusOne.bind(this);</span><br><span class="line">      this.handleReset = this.handleReset.bind(this);</span><br><span class="line">      this.state = &#123;</span><br><span class="line">         count: 0</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   handleAddOne() &#123;</span><br><span class="line">      this.setState((prevState) =&gt; &#123; //通过参数prevState获取到count值</span><br><span class="line">         return&#123; //返回的这个对象仅仅会替换掉上面state中有关count的数值,不会影响其他数值发生改变</span><br><span class="line">            count: prevState.count + 1</span><br><span class="line">         &#125;</span><br><span class="line">      &#125;)</span><br><span class="line">      console.log(this); //undefined</span><br><span class="line">      console.log(&quot;加1&quot;)</span><br><span class="line">   &#125;</span><br><span class="line">   handleMinusOne() &#123;</span><br><span class="line">      this.setState((prevState) =&gt; &#123;</span><br><span class="line">         return&#123;</span><br><span class="line">            count: prevState.count - 1</span><br><span class="line">         &#125;</span><br><span class="line">      &#125;)</span><br><span class="line">      console.log(this);</span><br><span class="line">      console.log(&quot;减1&quot;)</span><br><span class="line">   &#125;</span><br><span class="line">   handleReset() &#123;</span><br><span class="line">      this.setState(() =&gt; &#123;</span><br><span class="line">         return&#123;</span><br><span class="line">            count: 0</span><br><span class="line">         &#125;</span><br><span class="line">      &#125;)</span><br><span class="line">      console.log(this);</span><br><span class="line">      console.log(&quot;重置&quot;);</span><br><span class="line">   &#125;</span><br><span class="line">   render() &#123;</span><br><span class="line">      console.log(this);</span><br><span class="line">      return(</span><br><span class="line">         &lt;div&gt;</span><br><span class="line">            &lt;h1&gt;Count: &#123;this.state.count&#125;&lt;/h1&gt;</span><br><span class="line">            &#123;/* 绑定一个事件函数的时候,只是把函数的引用放到这里,实际上没有人去调用这个函数,函数是自执行的,所以会产生this指向丢失的问题,可以通过constructor去解决 */&#125;</span><br><span class="line">            &lt;button onClick=&#123;this.handleAddOne&#125;&gt;+1&lt;/button&gt;</span><br><span class="line">            &lt;button onClick=&#123;this.handleMinusOne&#125;&gt;-1&lt;/button&gt;</span><br><span class="line">            &lt;button onClick=&#123;this.handleReset&#125;&gt;reset&lt;/button&gt;</span><br><span class="line">         &lt;/div&gt;</span><br><span class="line">      )</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line">ReactDOM.render(&lt;Counter /&gt;,document.getElementById(&quot;app&quot;));</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br></pre></td><td class="code"><pre><span class="line">//根组件MyApp</span><br><span class="line">class MyApp extends React.Component&#123;</span><br><span class="line">	//解决this指向丢失问题</span><br><span class="line">   constructor(props) &#123;</span><br><span class="line">      super(props);</span><br><span class="line">      this.handleRemoveAll = this.handleRemoveAll.bind(this);</span><br><span class="line">      this.handlePickOption = this.handlePickOption.bind(this);</span><br><span class="line">      this.handleAddOption = this.handleAddOption.bind(this);</span><br><span class="line">      this.state = &#123;</span><br><span class="line">         options: [&quot;张三&quot;,&quot;李四&quot;,&quot;王五&quot;,&quot;刘六&quot;]</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   </span><br><span class="line">   //1.子组件需要调用在根组件中定义的数据,所以应该将处理函数定义在根组件中方便调用数据,再通过props传值给子组件</span><br><span class="line">   handleAddOption(option) &#123;</span><br><span class="line">      // console.log(option);</span><br><span class="line">      //验证input框里面的内容</span><br><span class="line">      if(!option) &#123;</span><br><span class="line">         return &quot;选项不能为空&quot;</span><br><span class="line">      &#125;else if(this.state.options.includes(option)) &#123;</span><br><span class="line">         return &quot;不能输入重复的选项&quot;</span><br><span class="line">      &#125;else &#123;</span><br><span class="line">         this.setState((prevState) =&gt; &#123; //渲染</span><br><span class="line">            return&#123;</span><br><span class="line">               options: prevState.options.concat([option]) </span><br><span class="line">               //这里我们不能直接去改变prevState的值,只能使用concat拼接数组的形式去实现添加操作;</span><br><span class="line">               //在不改变原数组的情况下重新生成一个数组</span><br><span class="line">            &#125;</span><br><span class="line">         &#125;)</span><br><span class="line">      &#125; </span><br><span class="line">   &#125;</span><br><span class="line">   </span><br><span class="line">   //2.</span><br><span class="line">   handleRemoveAll() &#123; </span><br><span class="line">      // console.log(&quot;删除所有&quot;)</span><br><span class="line">      this.setState(() =&gt; &#123;</span><br><span class="line">         return&#123;</span><br><span class="line">            options: []</span><br><span class="line">         &#125;</span><br><span class="line">      &#125;)</span><br><span class="line">   &#125;</span><br><span class="line">   </span><br><span class="line">   //3.</span><br><span class="line">   handlePickOption() &#123;</span><br><span class="line">      const index = Math.floor(Math.random() * this.state.options.length);</span><br><span class="line">      const option = this.state.options[index];</span><br><span class="line">      alert(option);</span><br><span class="line">   &#125;</span><br><span class="line">   </span><br><span class="line">   //4.页面结构部分</span><br><span class="line">   render() &#123; </span><br><span class="line">      const title = &quot;帮你决定&quot;;</span><br><span class="line">      const subTitle = &quot;把你的命运交给电脑吧&quot;;</span><br><span class="line">      return(</span><br><span class="line">         &lt;div&gt;</span><br><span class="line">            &lt;Header title=&#123;title&#125; subTitle=&#123;subTitle&#125; /&gt;</span><br><span class="line">            &lt;Action </span><br><span class="line">               hasOptions = &#123;this.state.options.length &gt; 0&#125;</span><br><span class="line">               handlePickOption = &#123;this.handlePickOption&#125;/&gt;</span><br><span class="line">            &lt;Options </span><br><span class="line">               options=&#123;this.state.options&#125; </span><br><span class="line">               handleRemoveAll = &#123;this.handleRemoveAll&#125;/&gt; </span><br><span class="line">               &#123;/* b.将在父组件中定义好的删除函数通过props传值的形势传递给子组件使用,子组件在调用的时候this.props.handleRemoveAll进行调用 */&#125;</span><br><span class="line">            &lt;AddOption </span><br><span class="line">               handleAddOption = &#123;this.handleAddOption&#125;/&gt;</span><br><span class="line">         &lt;/div&gt;</span><br><span class="line">      )</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//组件1.Header</span><br><span class="line">class Header extends React.Component&#123;</span><br><span class="line">   render() &#123;</span><br><span class="line">      console.log(this.props.title);</span><br><span class="line">      return(</span><br><span class="line">         &lt;div&gt;</span><br><span class="line">            &lt;h1&gt;&#123;this.props.title&#125;&lt;/h1&gt;</span><br><span class="line">            &lt;p&gt;&#123;this.props.subTitle&#125;&lt;/p&gt;</span><br><span class="line">         &lt;/div&gt;</span><br><span class="line">      )</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//组件2.Action</span><br><span class="line">class Action extends React.Component&#123;</span><br><span class="line">   render() &#123;</span><br><span class="line">      return(</span><br><span class="line">         &lt;div&gt;</span><br><span class="line">            &lt;button </span><br><span class="line">               onClick=&#123;this.props.handlePickOption&#125;</span><br><span class="line">               disabled=&#123;!this.props.hasOptions&#125;&gt;</span><br><span class="line">               随机输出一个选项</span><br><span class="line">            &lt;/button&gt;</span><br><span class="line">         &lt;/div&gt;</span><br><span class="line">      )</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//组件3.Options</span><br><span class="line">class Options extends React.Component&#123;</span><br><span class="line">   render() &#123;</span><br><span class="line">      console.log(this.props);</span><br><span class="line">      return(</span><br><span class="line">         &lt;div&gt;</span><br><span class="line">            &lt;button onClick=&#123;this.props.handleRemoveAll&#125;&gt;删除所有&lt;/button&gt;</span><br><span class="line">            &#123; </span><br><span class="line">               this.props.options.map((option,index) =&gt; &#123;</span><br><span class="line">                  return &lt;option option=&#123;option&#125; key=&#123;`option_$&#123;index&#125;`&#125;&gt;&#123;option&#125;&lt;/option&gt;</span><br><span class="line">               &#125;)</span><br><span class="line">            &#125;</span><br><span class="line">         &lt;/div&gt;</span><br><span class="line">      )</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//组件4.Option</span><br><span class="line">class Option extends React.Component&#123;</span><br><span class="line">   render() &#123;</span><br><span class="line">      console.log(this.props);</span><br><span class="line">      return(</span><br><span class="line">         &lt;div&gt;</span><br><span class="line">            &#123;this.props.option&#125;</span><br><span class="line">         &lt;/div&gt;</span><br><span class="line">      )</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//组件5.AddOption</span><br><span class="line">class AddOption extends React.Component&#123;</span><br><span class="line">   constructor(props) &#123;</span><br><span class="line">      super(props);</span><br><span class="line">      this.handleFormSubmit = this.handleFormSubmit.bind(this);</span><br><span class="line">      this.state = &#123;</span><br><span class="line">         error: undefined</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   handleFormSubmit(e) &#123;</span><br><span class="line">      e.preventDefault();</span><br><span class="line">      const option = e.target.elements.option.value.trim(); </span><br><span class="line">      const error = this.props.handleAddOption(option); </span><br><span class="line">      //因为当前函数具有一定的逻辑操作,所以我们在该逻辑操作里面进行数据的处理,而不是在标签头部进行处理</span><br><span class="line">      console.log(error)</span><br><span class="line">      this.setState(() =&gt; &#123;</span><br><span class="line">         return&#123;</span><br><span class="line">            error: error</span><br><span class="line">         &#125;</span><br><span class="line">      &#125;)</span><br><span class="line">   &#125;</span><br><span class="line">   render() &#123;</span><br><span class="line">      return(</span><br><span class="line">         &lt;div&gt;</span><br><span class="line">            &#123;this.state.error &amp;&amp; &lt;p&gt;&#123;this.state.error&#125;&lt;/p&gt;&#125;</span><br><span class="line">            &lt;form onSubmit=&#123;this.handleFormSubmit&#125;&gt;</span><br><span class="line">               &lt;input type=&quot;text&quot; name=&quot;option&quot;/&gt;</span><br><span class="line">               &lt;button&gt;添加选项&lt;/button&gt;</span><br><span class="line">            &lt;/form&gt;</span><br><span class="line">         &lt;/div&gt;</span><br><span class="line">      )</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line">ReactDOM.render(&lt;MyApp /&gt;,document.getElementById(&quot;app&quot;));</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br></pre></td><td class="code"><pre><span class="line">定义组件的方式:</span><br><span class="line">	1.类组件;</span><br><span class="line">	2.函数组件;</span><br><span class="line">函数组件: stateless functional component</span><br><span class="line">在类组件中才有state属性,在函数组件中没有state属性;</span><br><span class="line">-----------------------------------------------------------------</span><br><span class="line">const User = (props) =&gt; &#123; //通过props对象接收获取name属性</span><br><span class="line">	return(</span><br><span class="line">		&lt;div&gt;</span><br><span class="line">			&lt;p&gt;名字: &#123;props.name&#125;&lt;/p&gt;</span><br><span class="line">			&lt;p&gt;年龄: &lt;/p&gt;</span><br><span class="line">		&lt;/div&gt;</span><br><span class="line">	)</span><br><span class="line">&#125;</span><br><span class="line">ReactDOM.render(&lt;User name=&quot;shuxiaowei&quot;/&gt;,document.getElementById(&quot;app&quot;));</span><br><span class="line">函数组件直接可以将内容渲染出来,不需要使用state属性,速度快,可读性高;</span><br><span class="line">---------------------------------------------------------------------------------</span><br><span class="line">class MyApp extends React.Component&#123;</span><br><span class="line">   constructor(props) &#123;</span><br><span class="line">      super(props);</span><br><span class="line">      this.handleRemoveAll = this.handleRemoveAll.bind(this);</span><br><span class="line">      this.handlePickOption = this.handlePickOption.bind(this);</span><br><span class="line">      this.handleAddOption = this.handleAddOption.bind(this);</span><br><span class="line">      this.state = &#123;</span><br><span class="line">         options: props.options</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   handleAddOption(option) &#123;</span><br><span class="line">      if(!option) &#123;</span><br><span class="line">         return &quot;选项不能为空&quot;</span><br><span class="line">      &#125;else if(this.state.options.includes(option)) &#123;</span><br><span class="line">         return &quot;不能输入重复的选项&quot;</span><br><span class="line">      &#125;else &#123;</span><br><span class="line">         this.setState((prevState) =&gt; &#123;</span><br><span class="line">            return&#123;</span><br><span class="line">               options: prevState.options.concat([option]) </span><br><span class="line">            &#125;</span><br><span class="line">         &#125;)</span><br><span class="line">      &#125;</span><br><span class="line">      </span><br><span class="line">   &#125;</span><br><span class="line">   handleRemoveAll() &#123; </span><br><span class="line">      this.setState(() =&gt; &#123;</span><br><span class="line">         return&#123;</span><br><span class="line">            options: []</span><br><span class="line">         &#125;</span><br><span class="line">      &#125;)</span><br><span class="line">   &#125;</span><br><span class="line">   handlePickOption() &#123;</span><br><span class="line">      const index = Math.floor(Math.random() * this.state.options.length);</span><br><span class="line">      const option = this.state.options[index];</span><br><span class="line">      alert(option);</span><br><span class="line">   &#125;</span><br><span class="line">   render() &#123; </span><br><span class="line">      const subTitle = &quot;把你的命运交给电脑吧&quot;;</span><br><span class="line">      return(</span><br><span class="line">         &lt;div&gt;</span><br><span class="line">            &lt;Header subTitle=&#123;subTitle&#125; /&gt;</span><br><span class="line">            &lt;Action </span><br><span class="line">               hasOptions = &#123;this.state.options.length &gt; 0&#125;</span><br><span class="line">               handlePickOption = &#123;this.handlePickOption&#125;/&gt;</span><br><span class="line">            &lt;Options </span><br><span class="line">               options=&#123;this.state.options&#125; </span><br><span class="line">               handleRemoveAll = &#123;this.handleRemoveAll&#125;/&gt; </span><br><span class="line">            &lt;AddOption </span><br><span class="line">               handleAddOption = &#123;this.handleAddOption&#125;/&gt;</span><br><span class="line">         &lt;/div&gt;</span><br><span class="line">      )</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line">MyApp.defaultProps = &#123;</span><br><span class="line">   options: []</span><br><span class="line">&#125;</span><br><span class="line">const Header = (props) =&gt; &#123;</span><br><span class="line">   return(</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">         &lt;h1&gt;&#123;props.title&#125;&lt;/h1&gt;</span><br><span class="line">         &#123;props.subTitle &amp;&amp; &lt;h2&gt;&#123;props.subTitle&#125;&lt;/h2&gt;&#125;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">   )</span><br><span class="line">&#125;</span><br><span class="line">Header.defaultProps = &#123; //当我们没有传递title的时候,走默认值</span><br><span class="line">   title: &quot;我是默认的title&quot;</span><br><span class="line">&#125;</span><br><span class="line">// class Header extends React.Component&#123;</span><br><span class="line">//    render() &#123;</span><br><span class="line">//       console.log(this.props.title);</span><br><span class="line">//       //return jsx语法</span><br><span class="line">//       return(</span><br><span class="line">//          &lt;div&gt;</span><br><span class="line">//             &lt;h1&gt;&#123;this.props.title&#125;&lt;/h1&gt;</span><br><span class="line">//             &lt;p&gt;&#123;this.props.subTitle&#125;&lt;/p&gt;</span><br><span class="line">//          &lt;/div&gt;</span><br><span class="line">//       )</span><br><span class="line">//    &#125;</span><br><span class="line">// &#125;</span><br><span class="line">const Action = (props) =&gt; &#123;</span><br><span class="line">   return(</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">         &lt;button </span><br><span class="line">            onClick=&#123;props.handlePickOption&#125;</span><br><span class="line">            disabled=&#123;!props.hasOptions&#125;&gt;</span><br><span class="line">            随机输出一个选项</span><br><span class="line">         &lt;/button&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">   )</span><br><span class="line">&#125;</span><br><span class="line">// class Action extends React.Component&#123;</span><br><span class="line">//    render() &#123;</span><br><span class="line">//       return(</span><br><span class="line">//          &lt;div&gt;</span><br><span class="line">//             &lt;button </span><br><span class="line">//                onClick=&#123;this.props.handlePickOption&#125;</span><br><span class="line">//                disabled=&#123;!this.props.hasOptions&#125;&gt;</span><br><span class="line">//                随机输出一个选项</span><br><span class="line">//             &lt;/button&gt;</span><br><span class="line">//          &lt;/div&gt;</span><br><span class="line">//       )</span><br><span class="line">//    &#125;</span><br><span class="line">// &#125;</span><br><span class="line">const Options = (props) =&gt; &#123;</span><br><span class="line">   return(</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">         &lt;button onClick=&#123;props.handleRemoveAll&#125;&gt;删除所有&lt;/button&gt;</span><br><span class="line">         &#123; </span><br><span class="line">            props.options.map((option,index) =&gt; &#123;</span><br><span class="line">               return &lt;option option=&#123;option&#125; key=&#123;`option_$&#123;index&#125;`&#125;&gt;&#123;option&#125;&lt;/option&gt;</span><br><span class="line">            &#125;)</span><br><span class="line">         &#125;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">   )</span><br><span class="line">&#125;</span><br><span class="line">// class Options extends React.Component&#123;</span><br><span class="line">//    render() &#123;</span><br><span class="line">//       console.log(this.props);</span><br><span class="line">//       return(</span><br><span class="line">//          &lt;div&gt;</span><br><span class="line">//             &lt;button onClick=&#123;this.props.handleRemoveAll&#125;&gt;删除所有&lt;/button&gt;</span><br><span class="line">//             &#123; </span><br><span class="line">//                this.props.options.map((option,index) =&gt; &#123;</span><br><span class="line">//                   return &lt;option option=&#123;option&#125; key=&#123;`option_$&#123;index&#125;`&#125;&gt;&#123;option&#125;&lt;/option&gt;</span><br><span class="line">//                &#125;)</span><br><span class="line">//             &#125;</span><br><span class="line">//          &lt;/div&gt;</span><br><span class="line">//       )</span><br><span class="line">//    &#125;</span><br><span class="line">// &#125;</span><br><span class="line">const Option = (props) =&gt; &#123;</span><br><span class="line">   return(</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">         &#123;props.option&#125;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">   )</span><br><span class="line">&#125;</span><br><span class="line">// class Option extends React.Component&#123;</span><br><span class="line">//    render() &#123;</span><br><span class="line">//       console.log(this.props);</span><br><span class="line">//       return(</span><br><span class="line">//          &lt;div&gt;</span><br><span class="line">//             &#123;this.props.option&#125;</span><br><span class="line">//          &lt;/div&gt;</span><br><span class="line">//       )</span><br><span class="line">//    &#125;</span><br><span class="line">// &#125;</span><br><span class="line">class AddOption extends React.Component&#123;</span><br><span class="line">   constructor(props) &#123;</span><br><span class="line">      super(props);</span><br><span class="line">      this.handleFormSubmit = this.handleFormSubmit.bind(this);</span><br><span class="line">      this.state = &#123;</span><br><span class="line">         error: undefined</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   handleFormSubmit(e) &#123;</span><br><span class="line">      e.preventDefault();</span><br><span class="line">      const option = e.target.elements.option.value.trim(); </span><br><span class="line"></span><br><span class="line">      const error = this.props.handleAddOption(option); </span><br><span class="line">      console.log(error)</span><br><span class="line">      this.setState(() =&gt; &#123;</span><br><span class="line">         return&#123;</span><br><span class="line">            error: error</span><br><span class="line">         &#125;</span><br><span class="line">      &#125;)</span><br><span class="line">   &#125;</span><br><span class="line">   render() &#123;</span><br><span class="line">      return(</span><br><span class="line">         &lt;div&gt;</span><br><span class="line">            &#123;this.state.error &amp;&amp; &lt;p&gt;&#123;this.state.error&#125;&lt;/p&gt;&#125;</span><br><span class="line">            &lt;form onSubmit=&#123;this.handleFormSubmit&#125;&gt;</span><br><span class="line">               &lt;input type=&quot;text&quot; name=&quot;option&quot;/&gt;</span><br><span class="line">               &lt;button&gt;添加选项&lt;/button&gt;</span><br><span class="line">            &lt;/form&gt;</span><br><span class="line">         &lt;/div&gt;</span><br><span class="line">      )</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line">const jsx = (</span><br><span class="line">   &lt;div&gt;</span><br><span class="line">      &lt;Header /&gt;</span><br><span class="line">      &lt;Action /&gt;</span><br><span class="line">      &lt;Options /&gt;</span><br><span class="line">      &lt;AddOption /&gt;</span><br><span class="line">   &lt;/div&gt;</span><br><span class="line">)</span><br><span class="line">ReactDOM.render(&lt;MyApp options=&#123;[&quot;张三&quot;,&quot;李四&quot;]&#125;/&gt;,document.getElementById(&quot;app&quot;));</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br></pre></td><td class="code"><pre><span class="line">生命周期/localstorage的应用</span><br><span class="line">只有在类的函数中才有生命周期</span><br><span class="line">class MyApp extends React.Component&#123;</span><br><span class="line">   constructor(props) &#123;</span><br><span class="line">      super(props);</span><br><span class="line">      this.handleRemoveAll = this.handleRemoveAll.bind(this);</span><br><span class="line">      this.handlePickOption = this.handlePickOption.bind(this);</span><br><span class="line">      this.handleAddOption = this.handleAddOption.bind(this);</span><br><span class="line">      this.handleRemoveOption = this.handleRemoveOption.bind(this);</span><br><span class="line">      this.state = &#123;</span><br><span class="line">         options: props.options</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   componentDidMount() &#123;</span><br><span class="line">      try&#123; //容错处理</span><br><span class="line">         // console.log(&quot;ComponentDidMount获取数据&quot;)</span><br><span class="line">         const json = localStorage.getItem(&quot;options&quot;);</span><br><span class="line">         const options = JSON.parse(json);</span><br><span class="line">         if(options) &#123;</span><br><span class="line">            this.setState(() =&gt; (&#123;</span><br><span class="line">               options: options</span><br><span class="line">            &#125;))</span><br><span class="line">         &#125;</span><br><span class="line">      &#125;catch(e) &#123;</span><br><span class="line">         //什么都不做</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   componentDidUpdate(prevProps,prevState) &#123;</span><br><span class="line">      // console.log(&quot;ComponentDidUpdate存储数据&quot;)</span><br><span class="line">      if(this.state.options.length !== prevState.options.length) &#123;</span><br><span class="line">         // console.log(&quot;存储数据&quot;)</span><br><span class="line">         const json = JSON.stringify(this.state.options);</span><br><span class="line">         localStorage.setItem(&quot;options&quot;,json)</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   componentWillUnmount() &#123;</span><br><span class="line">      console.log(&quot;componentWillUnmount&quot;)</span><br><span class="line">   &#125;</span><br><span class="line">   handleRemoveOption(option) &#123;</span><br><span class="line">      // console.log(option);</span><br><span class="line">      this.setState((prevState) =&gt; (&#123;</span><br><span class="line">         options: prevState.options.filter((item) =&gt; &#123;</span><br><span class="line">            return item === option ? false : true;</span><br><span class="line">         &#125;)</span><br><span class="line">      &#125;))</span><br><span class="line">   &#125;</span><br><span class="line">   handleAddOption(option) &#123;</span><br><span class="line">      // console.log(option);</span><br><span class="line">      //验证input框里面的内容</span><br><span class="line">      if(!option) &#123;</span><br><span class="line">         return &quot;选项不能为空&quot;</span><br><span class="line">      &#125;else if(this.state.options.includes(option)) &#123;</span><br><span class="line">         return &quot;不能输入重复的选项&quot;</span><br><span class="line">      &#125;else &#123;</span><br><span class="line">         this.setState(prevState =&gt; (&#123;options: prevState.options.concat([option])&#125;)</span><br><span class="line">         )</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   handleRemoveAll() &#123; //a.为什么要将这个删除函数定义在总组件MyApp里面,因为我们这个删除所有函数需要操控state中定义的数据</span><br><span class="line">      // console.log(&quot;删除所有&quot;)</span><br><span class="line">      this.setState(() =&gt; (&#123;options: []&#125;))</span><br><span class="line">   &#125;</span><br><span class="line">   handlePickOption() &#123;</span><br><span class="line">      const index = Math.floor(Math.random() * this.state.options.length);</span><br><span class="line">      const option = this.state.options[index];</span><br><span class="line">      alert(option);</span><br><span class="line">   &#125;</span><br><span class="line">   render() &#123; //通过render函数告诉我们在调用这个组件的时候应该被渲染出什么结构</span><br><span class="line">      const subTitle = &quot;把你的命运交给电脑吧&quot;;</span><br><span class="line">      return(</span><br><span class="line">         &lt;div&gt;</span><br><span class="line">            &lt;Header subTitle=&#123;subTitle&#125; /&gt;</span><br><span class="line">            &lt;Action </span><br><span class="line">               hasOptions = &#123;this.state.options.length &gt; 0&#125;</span><br><span class="line">               handlePickOption = &#123;this.handlePickOption&#125;/&gt;</span><br><span class="line">            &lt;Options</span><br><span class="line">               handleRemoveOption=&#123;this.handleRemoveOption&#125; </span><br><span class="line">               options=&#123;this.state.options&#125; </span><br><span class="line">               handleRemoveAll = &#123;this.handleRemoveAll&#125;/&gt; </span><br><span class="line">               &#123;/* b.将在父组件中定义好的删除函数通过props传值的形势传递给子组件使用,子组件在调用的时候this.props.handleRemoveAll进行调用 */&#125;</span><br><span class="line">            &lt;AddOption </span><br><span class="line">               handleAddOption = &#123;this.handleAddOption&#125;/&gt;</span><br><span class="line">         &lt;/div&gt;</span><br><span class="line">      )</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line">MyApp.defaultProps = &#123;</span><br><span class="line">   options: []</span><br><span class="line">&#125;</span><br><span class="line">const Header = (props) =&gt; &#123;</span><br><span class="line">   return(</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">         &lt;h1&gt;&#123;props.title&#125;&lt;/h1&gt;</span><br><span class="line">         &#123;props.subTitle &amp;&amp; &lt;h2&gt;&#123;props.subTitle&#125;&lt;/h2&gt;&#125;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">   )</span><br><span class="line">&#125;</span><br><span class="line">Header.defaultProps = &#123; //当我们没有传递title的时候,走默认值</span><br><span class="line">   title: &quot;我是默认的title&quot;</span><br><span class="line">&#125;</span><br><span class="line">const Action = (props) =&gt; &#123;</span><br><span class="line">   return(</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">         &lt;button </span><br><span class="line">            onClick=&#123;props.handlePickOption&#125;</span><br><span class="line">            disabled=&#123;!props.hasOptions&#125;&gt;</span><br><span class="line">            随机输出一个选项</span><br><span class="line">         &lt;/button&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">   )</span><br><span class="line">&#125;</span><br><span class="line">const Options = (props) =&gt; &#123;</span><br><span class="line">   return(</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">         &lt;button onClick=&#123;props.handleRemoveAll&#125;&gt;删除所有&lt;/button&gt;</span><br><span class="line">         &#123;props.options.length === 0 &amp;&amp; &lt;p&gt;请添加一个选项&lt;/p&gt;&#125;</span><br><span class="line">         &#123; </span><br><span class="line">            props.options.map((option,index) =&gt; (</span><br><span class="line">               &lt;Option </span><br><span class="line">                  option=&#123;option&#125; </span><br><span class="line">                  key=&#123;`option_$&#123;index&#125;`&#125; </span><br><span class="line">                  handleRemoveOption=&#123;props.handleRemoveOption&#125;</span><br><span class="line">                  /&gt;</span><br><span class="line">            ))</span><br><span class="line">         &#125;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">   )</span><br><span class="line">&#125;</span><br><span class="line">const Option = (props) =&gt; &#123;</span><br><span class="line">   return(</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">         &#123;props.option&#125;</span><br><span class="line">         &lt;button onClick=&#123;() =&gt; &#123;</span><br><span class="line">            props.handleRemoveOption(props.option)</span><br><span class="line">         &#125;&#125;&gt;remove&lt;/button&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">   )</span><br><span class="line">&#125;</span><br><span class="line">class AddOption extends React.Component&#123;</span><br><span class="line">   constructor(props) &#123;</span><br><span class="line">      super(props);</span><br><span class="line">      this.handleFormSubmit = this.handleFormSubmit.bind(this);</span><br><span class="line">      this.state = &#123;</span><br><span class="line">         error: undefined</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   handleFormSubmit(e) &#123;</span><br><span class="line">      e.preventDefault();</span><br><span class="line">      const option = e.target.elements.option.value.trim(); </span><br><span class="line">      const error = this.props.handleAddOption(option);</span><br><span class="line">      console.log(error)</span><br><span class="line">      this.setState(() =&gt; (&#123;error: error&#125;))</span><br><span class="line">      if(!error) &#123;</span><br><span class="line">         e.target.elements.option.value = &quot;&quot;</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   render() &#123;</span><br><span class="line">      return(</span><br><span class="line">         &lt;div&gt;</span><br><span class="line">            &#123;this.state.error &amp;&amp; &lt;p&gt;&#123;this.state.error&#125;&lt;/p&gt;&#125;</span><br><span class="line">            &lt;form onSubmit=&#123;this.handleFormSubmit&#125;&gt;</span><br><span class="line">               &lt;input type=&quot;text&quot; name=&quot;option&quot;/&gt;</span><br><span class="line">               &lt;button&gt;添加选项&lt;/button&gt;</span><br><span class="line">            &lt;/form&gt;</span><br><span class="line">         &lt;/div&gt;</span><br><span class="line">      )</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line">ReactDOM.render(&lt;MyApp options=&#123;[&quot;张三&quot;,&quot;李四&quot;]&#125;/&gt;,document.getElementById(&quot;app&quot;));</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">通过脚手架搭建项目	create-react-app</span><br><span class="line">步骤:</span><br><span class="line">	1.在cmd里面;	cd Desktop/</span><br><span class="line">	2.npx create-react-app myapp //myapp就是创建的项目名字,可任意</span><br><span class="line">	3.有时会因网络的原因导致无法搭建项目,这时可以采用换源,下载nrm指令: npm install nrm -g;</span><br><span class="line">	4.nrm use taobao;</span><br><span class="line">	5.再进行npx指令就可以了;</span><br><span class="line">	6.其中package.json里面是已经安装好了的依赖;</span><br><span class="line">	7.因为我们是开发文件,所以使用命令: npm run start;</span><br><span class="line">	8.用以打开服务器,它会在3000端口打开一个服务器;</span><br><span class="line">	9.src文件夹就是我们写源码的地方,所以把src里面的文件全部删掉;</span><br><span class="line">	10.在src文件夹里面创建index.js;</span><br><span class="line">    11.在index.js里面引入React和ReactDOM</span><br><span class="line">        import React from &quot;react&quot;;</span><br><span class="line">        import ReactDOM from &quot;react-dom&quot;;</span><br><span class="line">    12.关于修改React脚手架配置:</span><br><span class="line">        1)官网里面有高级配置:</span><br><span class="line">            在根目录下创建一个.env文件</span><br><span class="line">                HOST=“...” 然后^c重启服务器: npm run start //此命令用以修改域名地址</span><br><span class="line">                PORT=4000 //修改端口,重启服务器</span><br><span class="line">        2)配置代理</span><br><span class="line">            在package.json里面设置</span><br><span class="line">                加上一项 &quot;proxy&quot;: &quot;http://localhost:4000&quot;,//后面这个地址填我们需要代理的服务器</span><br><span class="line">                在index.html里面 fetch(&quot;/api&quot;) 相呼应</span><br><span class="line">    13.一个组件就是一个js文件的思想</span><br><span class="line">        在src文件夹里新建components文件夹,用以存放所有组件;</span><br><span class="line">        根据组件名在components文件夹里面创建文件,将对应的组件代码剪切到组件里,注意:</span><br><span class="line">            1)在独立出来的新组件最上面引入react;	import React from &quot;react&quot;</span><br><span class="line">            2)最下面暴露出组件;		export default AddOption;</span><br><span class="line">            3)回到index.js,引入组件	import AddOption from &quot;./components/AddOption&quot;</span><br><span class="line">            注意: 当在Options组件中使用了Option组件时,Option组件就必须在Options里面去引入;</span><br><span class="line">            4)根组件MyApp组件的独立,需要将除了import React和import ReactDom和最后的渲染到html节点之外的所有代码都剪切,包括各种子组件的import,这里要注意在复制过去的时候路径的改变;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">第三方组件的使用</span><br><span class="line">传值问题,通过props形式进行传值</span><br><span class="line">方式1:</span><br><span class="line">const Layout = (props) =&gt; &#123;</span><br><span class="line">   return(</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">         &lt;p&gt;头&lt;/p&gt;</span><br><span class="line">         &#123;props.content&#125;</span><br><span class="line">         &lt;p&gt;尾&lt;/p&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">   )</span><br><span class="line">&#125;</span><br><span class="line">ReactDOM.render(&lt;Layout content=&#123;(</span><br><span class="line">   &lt;div&gt;</span><br><span class="line">      &lt;p&gt;传进来的p&lt;/p&gt;</span><br><span class="line">      &lt;h1&gt;传进来的h1&lt;/h1&gt;</span><br><span class="line">   &lt;/div&gt;</span><br><span class="line">)&#125;/&gt;, document.getElementById(&quot;root&quot;));</span><br><span class="line">------------------------------------------</span><br><span class="line">方式2:(推荐,通过children属性获取)</span><br><span class="line">const Layout = (props) =&gt; &#123;</span><br><span class="line">   return(</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">         &lt;p&gt;头&lt;/p&gt;</span><br><span class="line">         &#123;props.children&#125;</span><br><span class="line">         &lt;p&gt;尾&lt;/p&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">   )</span><br><span class="line">&#125;</span><br><span class="line">ReactDOM.render(&lt;Layout&gt;</span><br><span class="line">   &lt;p&gt;这是一个p&lt;/p&gt;</span><br><span class="line">   &lt;h1&gt;这是一个h1&lt;/h1&gt;</span><br><span class="line">&lt;/Layout&gt;, document.getElementById(&quot;root&quot;));</span><br><span class="line">----------------------------------------------</span><br><span class="line">第三方组件 </span><br><span class="line">	1.Ant Design</span><br><span class="line">	2.react-modal</span><br><span class="line">		npm install react-model --save 下载</span><br><span class="line">	3.在页面结构app.js里面去引入react-modal组件</span><br><span class="line">	4.import ReactModal from &quot;react-modal&quot;;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">使用sass写样式:</span><br><span class="line">	1.安装sass: npm install node-sass --save</span><br><span class="line">	2.在src文件夹下面新建一个styles文件夹,在styles文件夹里面新建styles.scss文件;</span><br><span class="line">	3.在index.js里面引入scss;	</span><br><span class="line">		import &quot;./styles/style.scss&quot;</span><br><span class="line">	4.在styles文件夹里面新建一个base文件夹;</span><br><span class="line">	5.在base文件夹里面新建一个文件_base.scss用来存放最基本的样式,像字体大小,字体颜色等;</span><br><span class="line">        _base.scss:</span><br><span class="line">            body&#123;</span><br><span class="line">           		font-family: Arial, Helvetica, sans-serif, &quot;华文细黑&quot;, &quot;微软雅黑&quot;, &quot;宋体&quot;;</span><br><span class="line">        	&#125;</span><br><span class="line">        在styles.scss里面引入_base.scss文件:</span><br><span class="line">            @import &quot;./base/base&quot;;</span><br><span class="line">	6.用模块化的思想,每个组件都应该独立拥有一个样式文件夹;</span><br><span class="line">	7.在styles文件夹下面新建一个文件夹components,再在该文件夹下面新建一个_header.scss文件;</span><br><span class="line">	8.回到Header.js组件,将className=&quot;header&quot;挂载到对应的div标签上;</span><br><span class="line">	9.将@import &quot;./components/_header&quot;添加到styles.scss文件里面去,因为它是入口文件;</span><br><span class="line">	10.在_header.scss里面就可以书写我们Header组件的样式啦！</span><br><span class="line">	11.有一个库可以帮我们初始化所有样式属性,像padding,margin,a标签样式等;</span><br><span class="line">		normalize.css</span><br><span class="line">		npm install normalize.css(如果下载不成功的话,可以换源taonbao再试试)</span><br><span class="line">		在index.js里面引入; import &quot;normalize.css/normalize.css&quot;;</span><br><span class="line">    12.独立出通用的主题颜色:</span><br><span class="line">        1.在base文件夹里面新建一个_setting.scss文件;</span><br><span class="line">        2.在styles.scss里面最上面 @import &quot;./base/setting&quot;;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">live-server public/ 在public文件夹下打开服务器实现编辑器与浏览器实时同步刷新</span><br><span class="line">npm run babel -- src/app.js -o public/scripts/app.js -w 运行babel,将src里面的app.js文件通过babel,转换输出到public下的scripts下的app.js</span><br><span class="line"></span><br><span class="line">const template = &lt;div&gt; //必须要有一个根节点去把内容都给包裹起来</span><br><span class="line">	&lt;h1&gt;我是h1&lt;/h1&gt;</span><br><span class="line">	&lt;p&gt;我是一个p标签&lt;/p&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">也可以将html部分的代码放到()中,包裹起来,增加可读性</span><br><span class="line">const template = (</span><br><span class="line">	&lt;div&gt;</span><br><span class="line">		&lt;h1&gt;这是app&lt;/h1&gt;</span><br><span class="line">		&lt;p&gt;我是p标签&lt;/p&gt;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/lostmyself.github.io/tags/React/" rel="tag"># React</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/lostmyself.github.io/2019/08/13/4.微信小程序/" rel="next" title="微信小程序">
+                <i class="fa fa-chevron-left"></i> 微信小程序
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/lostmyself.github.io/2019/08/13/4.vue组件库/" rel="prev" title="Vue组件库">
+                Vue组件库 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/lostmyself.github.io/images/3.jpg" alt="sxw">
+            
+              <p class="site-author-name" itemprop="name">sxw</p>
+              <p class="site-description motion-element" itemprop="description">从一而终</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/lostmyself.github.io/archives/">
+              
+                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/lostmyself.github.io/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/lostmyself.github.io/tags/index.html">
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/sxw19960127" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="1183476700@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">sxw</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">156k</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lostmyself.github.io/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lostmyself.github.io/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lostmyself.github.io/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lostmyself.github.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lostmyself.github.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lostmyself.github.io/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lostmyself.github.io/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/lostmyself.github.io/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/lostmyself.github.io/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/lostmyself.github.io/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/lostmyself.github.io/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/lostmyself.github.io/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/lostmyself.github.io/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/lostmyself.github.io/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+
+<script src="/lostmyself.github.io/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"/lostmyself.github.io/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":200,"height":350},"mobile":{"show":true},"log":false,"tagMode":false});</script></body>
+</html>
+
